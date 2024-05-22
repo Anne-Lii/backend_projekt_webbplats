@@ -7,6 +7,8 @@ body,
 html {
     height: 100%;
     width: 100%;
+ 
+   
 }
 
 #bgVideo {
@@ -84,9 +86,19 @@ font-size: 20px;
 
 #div_meny {
     width: 100%;
-    min-height: 600px;
+    min-height: 100vh;
     background-color: #f7f5ed;
-    text-align: center;    
+    text-align: center; 
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 300;
+    font-style: italic;
+   
+}
+
+#div_meny h1 {
+    font-size: 44px;
+    margin-bottom: 100px;
+    padding-top: 100px;
 }
 
 #div_meny h2 {
@@ -94,5 +106,6 @@ font-size: 20px;
     display: inline-block;
     border-bottom: 2px solid  #d8d2b2;
     width: 800px; 
-    margin-bottom: 20px; 
+    margin-top: 10px;
+    margin-bottom: 50px; 
 }
