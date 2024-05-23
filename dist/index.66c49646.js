@@ -590,7 +590,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const url = "https://backend-projekt-api-2zmb.onrender.com/api/foods";
     fetch(url).then((response)=>response.json()).then((data)=>{
         displayMenu(data);
-        console.log(data);
     }).catch((error)=>console.error("Ett fel uppstod n\xe4r menyn skulle h\xe4mtas", error));
     function displayMenu(menuItems) {
         const smallDishesDiv = document.getElementById("sm\xe5r\xe4tter");
@@ -601,7 +600,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
             const menuItem = document.createElement("div");
             menuItem.classList.add("menu-item");
             menuItem.innerHTML = `
-            <h3>${item.food}</h3>
+            <h4>${item.food}</h4>
             <p>${item.description}</p>
             <p>Pris: ${item.price} kr</p>
         `;

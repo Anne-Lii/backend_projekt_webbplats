@@ -587,44 +587,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 //code written by Anne-Lii Hansen VT 2024
 "use strict";
 "use strict";
-document.addEventListener("DOMContentLoaded", ()=>{
-    const url = "https://backend-projekt-api-2zmb.onrender.com/api/foods";
-    fetch(url).then((response)=>response.json()).then((data)=>{
-        displayMenu(data);
-    }).catch((error)=>console.error("Ett fel uppstod n\xe4r menyn skulle h\xe4mtas", error));
-    function displayMenu(menuItems) {
-        const smallDishesDiv = document.getElementById("sm\xe5r\xe4tter");
-        const mainCoursesDiv = document.getElementById("varmr\xe4tt");
-        const dessertDiv = document.getElementById("dessert");
-        const drinksDiv = document.getElementById("drinks");
-        menuItems.forEach((item)=>{
-            const menuItem = document.createElement("div");
-            menuItem.classList.add("menu-item");
-            menuItem.innerHTML = `
-            <h3>${item.name}</h3>
-            <p>${item.description}</p>
-            <p>Pris: ${item.price} kr</p>
-        `;
-            switch(item.category){
-                case "SM\xc5R\xc4TTER":
-                    smallDishesDiv.appendChild(menuItem);
-                    break;
-                case "VARMR\xc4TTER":
-                    mainCoursesDiv.appendChild(menuItem);
-                    break;
-                case "DESSERT":
-                    dessertDiv.appendChild(menuItem);
-                    break;
-                case "DRYCK":
-                    drinksDiv.appendChild(menuItem);
-                    break;
-                default:
-                    console.error("Ogiltig kategori:", item.category);
-                    break;
-            }
-        });
-    }
-});
+document.addEventListener("DOMContentLoaded", ()=>{});
 
 },{}]},["j2YDk","1SICI"], "1SICI", "parcelRequire4e03")
 

@@ -8,8 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            displayMenu(data);
-            console.log(data);
+            displayMenu(data);           
         })
         .catch(error => console.error("Ett fel uppstod när menyn skulle hämtas", error));
 
@@ -24,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const menuItem = document.createElement('div');
             menuItem.classList.add('menu-item');
             menuItem.innerHTML = `
-            <h3>${item.food}</h3>
+            <h4>${item.food}</h4>
             <p>${item.description}</p>
             <p>Pris: ${item.price} kr</p>
         `;
