@@ -586,8 +586,13 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 },{}],"1SICI":[function(require,module,exports) {
 //code written by Anne-Lii Hansen VT 2024
 "use strict";
-"use strict";
-document.addEventListener("DOMContentLoaded", ()=>{});
+document.addEventListener("DOMContentLoaded", ()=>{
+    window.addEventListener("scroll", function() {
+        let nav = document.querySelector("nav");
+        if (this.window.scrollY > 0) nav.classList.add("nav-scroll");
+        else nav.classList.remove("nav-scrolled");
+    });
+});
 
 },{}]},["j2YDk","1SICI"], "1SICI", "parcelRequire4e03")
 
