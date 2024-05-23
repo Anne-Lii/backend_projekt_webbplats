@@ -1,0 +1,47 @@
+body {
+    background-color: rgb(71, 68, 64);
+    width: 100%;
+}
+
+main {
+    width: 100%;
+    max-width: 800px;
+    height: 800px;
+    margin: auto;
+    text-align: center;
+    padding-top: 300px;
+
+}
+
+img {
+    width: 100%;
+    max-width: 200px;
+    padding: 30px;
+}
+
+label {
+    font-size: 24px;
+    color: #d8d2b2;
+    
+}
+
+input {
+    padding: 7px;
+    margin: 10px;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 30px;
+    margin-top: 20px;
+    background-color: #d8d2b2;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+button:hover {
+    background-color: #bbb69a;
+    box-shadow: 5px 5px 10px black;
+}

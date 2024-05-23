@@ -125,3 +125,15 @@ nav ul li a {
     font-size: 1.2em;
     color: #d8d2b2;
 }
+
+#link_editMenu, #link_admin {
+    display: none;
+}
+
+/* Layout for smaller screens than 600px*/
+@media (max-width: 600px) {
+    .menu-item {
+        flex: 1 1 100%; /* Ta upp hela bredden på små skärmar */
+        font-size: 0.9em;
+    }
+}
