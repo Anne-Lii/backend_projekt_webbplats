@@ -95,17 +95,63 @@ font-size: 20px;
    
 }
 
+/* Headline MENY */
 #div_meny h1 {
     font-size: 44px;
-    margin-bottom: 100px;
-    padding-top: 100px;
+    padding-top: 200px;
 }
 
+/* Headlines categories */
 #div_meny h2 {
     font-size: 34px;
     display: inline-block;
     border-bottom: 2px solid  #d8d2b2;
     width: 800px; 
-    margin-top: 10px;
-    margin-bottom: 50px; 
+    margin-top: 200px;
+    margin-bottom: 30px; 
+}
+
+
+/* container for ALL food */
+#smårätter, #varmrätt, #dessert, #drinks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* one food item */
+.menu-item {
+    padding: 15px; 
+    flex: 1 1 calc(50% - 40px); /* Take up 50% of the width minus gap */
+    box-sizing: border-box;   
+    max-width: 400px;       
+    margin: 10px;      
+    flex: 1 1 calc(30% - 40px);
+}
+
+.menu-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.menu-item p {
+    font-size: 1em;
+    margin: 5px 0;
+    color: #666;
+}
+
+.menu-item p:last-child {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #000;
+}
+
+/* Layout for smaller screens than 600px*/
+@media (max-width: 600px) {
+    .menu-item {
+        flex: 1 1 100%; /* Ta upp hela bredden på små skärmar */
+        font-size: 0.9em;
+    }
 }

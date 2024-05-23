@@ -17,6 +17,9 @@ En webbplats som med hjälp av API presenterar en meny med mat och dryck. Inlogg
 
 ## Funktionalitet
 
+**Dynamisk meny**
+Menyn uppdateras dynamiskt från APIet. I inloggat läge som administratör finns möjlighet att uppdatera maträtter samt lägga till och ta bort maträtter.
+
 **registrering av användare** 
 i administratörsgränssnitte som är en skyddad route kan nya administratörer registreras med användarnamn och lösenord i ett formulär. Användarnamnet och lösenordet sparas hashade i en MongoDB databas som är hostad på Atlas. Användaren behöver ange användarnamn och lösenord.
 
