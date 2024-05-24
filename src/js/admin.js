@@ -122,32 +122,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const deleteButton = document.createElement('button');
             deleteButton.setAttribute('data-id', item._id);
-            deleteButton.className = 'btn btn-delete';           
+            deleteButton.className = 'btn btn-delete';
             deleteButton.onclick = () => deleteItem(deleteButton.getAttribute('data-id'), item.category, item.food ? 'food' : 'drink'); // Använd ID:et från data-attributet i deleteItem-funktionen
             cellDelete.appendChild(deleteButton);
-            
+
         });
 
         // Show the table after it has been filled
         table.style.display = 'table';
     }
 
-    function clearFoodTables() {
-        document.getElementById('smallDishesTable').getElementsByTagName('tbody')[0].innerHTML = "";
-        document.getElementById('mainCoursesTable').getElementsByTagName('tbody')[0].innerHTML = "";
-        document.getElementById('dessertTable').getElementsByTagName('tbody')[0].innerHTML = "";
-    }
-
-    function clearDrinkTables() {
-        document.getElementById('whiteTable').getElementsByTagName('tbody')[0].innerHTML = "";
-        document.getElementById('redTable').getElementsByTagName('tbody')[0].innerHTML = "";
-        document.getElementById('roseTable').getElementsByTagName('tbody')[0].innerHTML = "";
-        document.getElementById('champagneTable').getElementsByTagName('tbody')[0].innerHTML = "";
-        document.getElementById('drinkTable').getElementsByTagName('tbody')[0].innerHTML = "";
-        document.getElementById('beerTable').getElementsByTagName('tbody')[0].innerHTML = "";
-        document.getElementById('alcoholfreeTable').getElementsByTagName('tbody')[0].innerHTML = "";
-    }
-
+   
 
     // Get the modal
     const modal = document.getElementById("updateModal");
@@ -179,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     //function to handle update of items from form
-    document.getElementById("updateForm").addEventListener("submit", async function (event){
+    document.getElementById("updateForm").addEventListener("submit", async function (event) {
         event.preventDefault();
 
         const updatedItem = {
@@ -192,9 +177,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const apiUrl = currentItem.food ? foodUrl : drinkUrl;
 
-               try {
+        try {
             const response = await fetch(`${apiUrl}/${currentItem._id}`, {
-                
+
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -228,29 +213,43 @@ document.addEventListener("DOMContentLoaded", () => {
     function deleteItem(id, category, type) {
 
         const apiUrl = type === 'food' ? foodUrl : drinkUrl;
-    
+
         fetch(`${apiUrl}/${id}`, {
             method: 'DELETE'
         })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Failed to delete item');
-            }
-            return response.json();
-        })
-        .then(result => {
-            console.log('Deleted item:', result);
-    
-            // Refresh the list of items or update the table directly
-            if (type === 'food') {
-                fetchFoodItemsAndDraw(category);
-            } else {
-                fetchDrinkItemsAndDraw(category);
-            }
-        })
-        .catch(error => {
-            console.error('Error deleting item:', error);
-        });
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to delete item');
+                }
+                return response.json();
+            })
+            .then(result => {
+                console.log('Deleted item:', result);
+
+                // Refresh the list of items or update the table directly
+                if (type === 'food') {
+                    fetchFoodItemsAndDraw(category);
+                } else {
+                    fetchDrinkItemsAndDraw(category);
+                }
+            })
+            .catch(error => {
+                console.error('Error deleting item:', error);
+            });
     }
-    
+
+    //function to register a new admin
+    document.getElementById('registrationSection').addEventListener('click', function (event) {
+        event.preventDefault();
+
+        //change REGISTER display:none to block
+        document.getElementById('registrationSection').style.display = 'block';
+        //change FOOD display:block to none
+        document.getElementById('foodSection').style.display = 'none';
+        //change DRINK display:block to none
+        document.getElementById('drinkSection').style.display = 'none';
+
+    });
+
+
 });

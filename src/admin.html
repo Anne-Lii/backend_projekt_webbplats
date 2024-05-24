@@ -21,13 +21,14 @@
     </header>
 
     <aside class="vertical_menu">
-        <a href="#" id="link_edit_food">redigera mat</a>
-        <a href="#" id="link_edit_drinks">redigera dryck</a>
-        <a href="#" id="link_edit_openhours">redigera öppettider</a>
-        <a href="#" id="link_register_new">registrera ny användare</a>
+        <a href="#" id="link_edit_food">Redigera mat</a>
+        <a href="#" id="link_edit_drinks">Redigera dryck</a>
+        <a href="#" id="link_edit_openhours">Redigera öppettider</a>
+        <a href="#" id="link_register_new">Registrera ny användare</a>
     </aside>
 
     <main>
+        <h1>Du är inloggad som administratör</h1>
 
 
         <!-- Sektion för redigering av mat -->
@@ -253,11 +254,11 @@
 
 
         <!-- Sektion för registrering av nya användare -->
-        <section id="registrationSection">
+        <section id="registrationSection" style="display:none;">
 
-            <h2 id="registerTitle" style="display:none;">Registrera ny användare</h2>
+            <h2 id="registerTitle">Registrera ny användare</h2>
 
-            <form id="regForm" style="display:none;">
+            <form id="regForm">
                 <label for="username">Användarnamn: </label>
                 <input type="text" id="username" name="username">
 
@@ -293,7 +294,7 @@
                 <label for="name">Namn:</label>
                 <input type="text" id="name" name="name"><br>
                 <label for="description">Beskrivning:</label>
-                <input type="text" id="description" name="description"><br>
+                <input type="textarea" id="description" name="description"><br>
                 <label for="price">Pris:</label>
                 <input type="text" id="price" name="price"><br>
                 <button type="submit">Uppdatera</button>

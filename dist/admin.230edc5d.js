@@ -694,20 +694,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
         // Show the table after it has been filled
         table.style.display = "table";
     }
-    function clearFoodTables() {
-        document.getElementById("smallDishesTable").getElementsByTagName("tbody")[0].innerHTML = "";
-        document.getElementById("mainCoursesTable").getElementsByTagName("tbody")[0].innerHTML = "";
-        document.getElementById("dessertTable").getElementsByTagName("tbody")[0].innerHTML = "";
-    }
-    function clearDrinkTables() {
-        document.getElementById("whiteTable").getElementsByTagName("tbody")[0].innerHTML = "";
-        document.getElementById("redTable").getElementsByTagName("tbody")[0].innerHTML = "";
-        document.getElementById("roseTable").getElementsByTagName("tbody")[0].innerHTML = "";
-        document.getElementById("champagneTable").getElementsByTagName("tbody")[0].innerHTML = "";
-        document.getElementById("drinkTable").getElementsByTagName("tbody")[0].innerHTML = "";
-        document.getElementById("beerTable").getElementsByTagName("tbody")[0].innerHTML = "";
-        document.getElementById("alcoholfreeTable").getElementsByTagName("tbody")[0].innerHTML = "";
-    }
     // Get the modal
     const modal = document.getElementById("updateModal");
     // Get the <span> element that closes the modal
@@ -776,6 +762,16 @@ document.addEventListener("DOMContentLoaded", ()=>{
             console.error("Error deleting item:", error);
         });
     }
+    //function to register a new admin
+    document.getElementById("registrationSection").addEventListener("click", function(event) {
+        event.preventDefault();
+        //change REGISTER display:none to block
+        document.getElementById("registrationSection").style.display = "block";
+        //change FOOD display:block to none
+        document.getElementById("foodSection").style.display = "none";
+        //change DRINK display:block to none
+        document.getElementById("drinkSection").style.display = "none";
+    });
 });
 
 },{}]},["b2mJY","cHucQ"], "cHucQ", "parcelRequire4e03")
