@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/protected.js" type="module"></script>
     <script src="js/admin.js" type="module"></script>
-    <script src="js/modal.js" type="module"></script>
     <link rel="stylesheet" href="/src/css/admin.css">
     <title>Admin</title>
 </head>
@@ -36,8 +35,8 @@
 
             <h2 id="foodTitle">Mat</h2>
 
-            <h3  class="foods_headline">Smårätter</h3>
-            <table id="smallDishesTable" >
+            <h3 class="foods_headline">Smårätter</h3>
+            <table id="smallDishesTable">
                 <thead>
                     <tr>
                         <th>Kategori</th>
@@ -53,7 +52,7 @@
                 </tbody>
             </table>
 
-            <h3  class="foods_headline">Varmrätter</h3>
+            <h3 class="foods_headline">Varmrätter</h3>
             <table id="mainCoursesTable">
                 <thead>
                     <tr>
@@ -70,8 +69,8 @@
                 </tbody>
             </table>
 
-            <h3  class="foods_headline">Dessert</h3>
-            <table id="dessertTable" >
+            <h3 class="foods_headline">Dessert</h3>
+            <table id="dessertTable">
                 <thead>
                     <tr>
                         <th>Kategori</th>
@@ -96,11 +95,11 @@
         <!-- Sektion för redigering av drycker -->
         <section id="drinkSection" style="display: none;">
 
-            <h2 id="drinkTitle" >Dryck</h2>
+            <h2 id="drinkTitle">Dryck</h2>
 
             <h3 class="drinks_headline">Vitt vin</h3>
 
-            <table id="whiteTable" >
+            <table id="whiteTable">
                 <thead>
                     <tr>
                         <th>Kategori</th>
@@ -134,7 +133,7 @@
                 </tbody>
             </table>
 
-            <h3  class="drinks_headline">Rosé</h3>
+            <h3 class="drinks_headline">Rosé</h3>
 
             <table id="roseTable">
                 <thead>
@@ -152,9 +151,9 @@
                 </tbody>
             </table>
 
-            <h3  class="drinks_headline">Champagne</h3>
+            <h3 class="drinks_headline">Champagne</h3>
 
-            <table id="champagneTable" >
+            <table id="champagneTable">
                 <thead>
                     <tr>
                         <th>Kategori</th>
@@ -171,7 +170,7 @@
             </table>
 
 
-            <h3  class="drinks_headline">Drinkar</h3>
+            <h3 class="drinks_headline">Drinkar</h3>
 
             <table id="drinkTable">
                 <thead>
@@ -190,7 +189,7 @@
             </table>
 
 
-            <h3  class="drinks_headline">Öl</h3>
+            <h3 class="drinks_headline">Öl</h3>
 
             <table id="beerTable">
                 <thead>
@@ -209,7 +208,7 @@
             </table>
 
 
-            <h3  class="drinks_headline">Alkoholfritt</h3>
+            <h3 class="drinks_headline">Alkoholfritt</h3>
 
             <table id="alcoholfreeTable">
                 <thead>
@@ -234,9 +233,9 @@
         <!-- Sektion för redigering av öppettider -->
         <section id="openingHoursSection" style="display:none;">
 
-            <h2 id="openinghoursTitle" >Öppettider</h2>
+            <h2 id="openinghoursTitle">Öppettider</h2>
 
-            <table id="openinghoursTable" >
+            <table id="openinghoursTable">
                 <thead>
                     <tr>
                         <th>Veckodag</th>
@@ -273,30 +272,36 @@
 
     </main>
 
-    <!-- Modal Structure -->
-<div id="updateModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <h2>Uppdatera post</h2>
-      <form id="updateForm">
-        <select id="category" name="category">
-            <option value="smårätter">Smårätter</option>
-            <option value="varmrätt">Varmrätter</option>
-            <option value="dessert">Dessert</option>
-          </select>
-        <label for="name">Namn:</label>
-        <input type="text" id="name" name="name">
-        <label for="description">Beskrivning:</label>
-        <textarea id="description" name="description"></textarea>
-        <label for="price">Pris:</label>
-        <input type="number" id="price" name="price">
-        <label for="category">Kategori:</label>
-       
-        <button type="submit">Uppdatera</button>
-      </form>
+    <!-- The Modal -->
+    <div id="updateModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="updateForm">
+                <label for="category">Kategori:</label>
+                <select id="category" name="category">
+                    <option value="smårätter">Smårätter</option>
+                    <option value="varmrätt">Varmrätt</option>
+                    <option value="dessert">Dessert</option>
+                    <option value="white">White</option>
+                    <option value="red">Red</option>
+                    <option value="rose">Rose</option>
+                    <option value="champagne">Champagne</option>
+                    <option value="drink">Drink</option>
+                    <option value="beer">Beer</option>
+                    <option value="alcoholfree">Alcoholfree</option>
+                </select><br>
+                <label for="name">Namn:</label>
+                <input type="text" id="name" name="name"><br>
+                <label for="description">Beskrivning:</label>
+                <input type="text" id="description" name="description"><br>
+                <label for="price">Pris:</label>
+                <input type="text" id="price" name="price"><br>
+                <button type="submit">Uppdatera</button>
+            </form>
+        </div>
     </div>
-  </div>
-  
+
+
 
 </body>
 
