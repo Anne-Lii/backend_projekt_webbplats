@@ -5,29 +5,298 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/admin.6ea04a7a.js" defer=""></script>
+    <script src="/admin.230edc5d.js" defer=""></script>
+    <script src="/admin.f9b3b06b.js" defer=""></script>
+    <link rel="stylesheet" href="/admin.2a7a7745.css">
     <title>Admin</title>
 </head>
 
 <body>
 
     <header>
-        <nav>
-            <ul>
-                <li><a href="/editMenu.html">Redigera Meny</a></li>
-                <li><a href="/register.html">Registrera användare</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
         <h1>Administratör</h1>
-        
-        <h2>Bokningar</h2>
-        <div id="bookings"></div>
 
         <button id="logoutBtn">Logga ut</button>
 
+    </header>
+
+    <aside class="vertical_menu">
+        <a href="#" id="link_edit_food">redigera mat</a>
+        <a href="#" id="link_edit_drinks">redigera dryck</a>
+        <a href="#" id="link_edit_openhours">redigera öppettider</a>
+        <a href="#" id="link_register_new">registrera ny användare</a>
+    </aside>
+
+    <main>
+
+
+        <!-- Sektion för redigering av mat -->
+        <section id="foodSection" style="display: none">
+
+            <h2 id="foodTitle">Mat</h2>
+
+            <h3 class="foods_headline">Smårätter</h3>
+            <table id="smallDishesTable">
+                <thead>
+                    <tr>
+                        <th>Kategori</th>
+                        <th>Namn</th>
+                        <th>Beskrivning</th>
+                        <th>Pris</th>
+                        <th>Redigera</th>
+                        <th>Ta bort</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Category "Smårätter" -->
+                </tbody>
+            </table>
+
+            <h3 class="foods_headline">Varmrätter</h3>
+            <table id="mainCoursesTable">
+                <thead>
+                    <tr>
+                        <th>Kategori</th>
+                        <th>Namn</th>
+                        <th>Beskrivning</th>
+                        <th>Pris</th>
+                        <th>Redigera</th>
+                        <th>Ta bort</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Category "Varmrätter" -->
+                </tbody>
+            </table>
+
+            <h3 class="foods_headline">Dessert</h3>
+            <table id="dessertTable">
+                <thead>
+                    <tr>
+                        <th>Kategori</th>
+                        <th>Namn</th>
+                        <th>Beskrivning</th>
+                        <th>Pris</th>
+                        <th>Redigera</th>
+                        <th>Ta bort</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Category "Desserter" -->
+                </tbody>
+            </table>
+        </section>
+
+
+
+
+
+
+        <!-- Sektion för redigering av drycker -->
+        <section id="drinkSection" style="display: none">
+
+            <h2 id="drinkTitle">Dryck</h2>
+
+            <h3 class="drinks_headline">Vitt vin</h3>
+
+            <table id="whiteTable">
+                <thead>
+                    <tr>
+                        <th>Kategori</th>
+                        <th>Namn</th>
+                        <th>Beskrivning</th>
+                        <th>Pris</th>
+                        <th>Redigera</th>
+                        <th>Ta bort</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Category "Vitt vin" -->
+                </tbody>
+            </table>
+
+            <h3 class="drinks_headline">Rött vin</h3>
+
+            <table id="redTable">
+                <thead>
+                    <tr>
+                        <th>Kategori</th>
+                        <th>Namn</th>
+                        <th>Beskrivning</th>
+                        <th>Pris</th>
+                        <th>Redigera</th>
+                        <th>Ta bort</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Category "Rött vin" -->
+                </tbody>
+            </table>
+
+            <h3 class="drinks_headline">Rosé</h3>
+
+            <table id="roseTable">
+                <thead>
+                    <tr>
+                        <th>Kategori</th>
+                        <th>Namn</th>
+                        <th>Beskrivning</th>
+                        <th>Pris</th>
+                        <th>Redigera</th>
+                        <th>Ta bort</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Category "Rosé" -->
+                </tbody>
+            </table>
+
+            <h3 class="drinks_headline">Champagne</h3>
+
+            <table id="champagneTable">
+                <thead>
+                    <tr>
+                        <th>Kategori</th>
+                        <th>Namn</th>
+                        <th>Beskrivning</th>
+                        <th>Pris</th>
+                        <th>Redigera</th>
+                        <th>Ta bort</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Category "Champagne vin" -->
+                </tbody>
+            </table>
+
+
+            <h3 class="drinks_headline">Drinkar</h3>
+
+            <table id="drinkTable">
+                <thead>
+                    <tr>
+                        <th>Kategori</th>
+                        <th>Namn</th>
+                        <th>Beskrivning</th>
+                        <th>Pris</th>
+                        <th>Redigera</th>
+                        <th>Ta bort</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Category "Drinkar" -->
+                </tbody>
+            </table>
+
+
+            <h3 class="drinks_headline">Öl</h3>
+
+            <table id="beerTable">
+                <thead>
+                    <tr>
+                        <th>Kategori</th>
+                        <th>Namn</th>
+                        <th>Beskrivning</th>
+                        <th>Pris</th>
+                        <th>Redigera</th>
+                        <th>Ta bort</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Category "Öl" -->
+                </tbody>
+            </table>
+
+
+            <h3 class="drinks_headline">Alkoholfritt</h3>
+
+            <table id="alcoholfreeTable">
+                <thead>
+                    <tr>
+                        <th>Kategori</th>
+                        <th>Namn</th>
+                        <th>Beskrivning</th>
+                        <th>Pris</th>
+                        <th>Redigera</th>
+                        <th>Ta bort</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Category "Alkoholfritt" -->
+                </tbody>
+            </table>
+
+        </section>
+
+
+
+        <!-- Sektion för redigering av öppettider -->
+        <section id="openingHoursSection" style="display: none">
+
+            <h2 id="openinghoursTitle">Öppettider</h2>
+
+            <table id="openinghoursTable">
+                <thead>
+                    <tr>
+                        <th>Veckodag</th>
+                        <th>Öppnar</th>
+                        <th>Stänger</th>
+                        <th>Redigera</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- openinghours" -->
+                </tbody>
+            </table>
+        </section>
+
+
+
+        <!-- Sektion för registrering av nya användare -->
+        <section id="registrationSection">
+
+            <h2 id="registerTitle" style="display: none">Registrera ny användare</h2>
+
+            <form id="regForm" style="display: none">
+                <label for="username">Användarnamn: </label>
+                <input type="text" id="username" name="username">
+
+                <label for="password">Lösenord: </label>
+                <input type="password" id="password" name="password">
+
+                <button type="submit">Registrera användare</button>
+            </form>
+
+        </section>
+
+
     </main>
+
+    <!-- Modal Structure -->
+<div id="updateModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Uppdatera post</h2>
+      <form id="updateForm">
+        <select id="category" name="category">
+            <option value="smårätter">Smårätter</option>
+            <option value="varmrätt">Varmrätter</option>
+            <option value="dessert">Dessert</option>
+          </select>
+        <label for="name">Namn:</label>
+        <input type="text" id="name" name="name">
+        <label for="description">Beskrivning:</label>
+        <textarea id="description" name="description"></textarea>
+        <label for="price">Pris:</label>
+        <input type="number" id="price" name="price">
+        <label for="category">Kategori:</label>
+       
+        <button type="submit">Uppdatera</button>
+      </form>
+    </div>
+  </div>
+  
 
 </body>
 

@@ -1,0 +1,90 @@
+.vertical_menu {
+  float: left;
+  width: 50%;
+  max-width: 200px;
+}
+
+.vertical_menu a {
+  color: #000;
+  background-color: #f1f1f1;
+  padding: 12px;
+  text-decoration: none;
+  display: block;
+}
+
+.vertical_menu a:hover {
+  background-color: #ccc;
+}
+
+main {
+  background-color: #e6e0d9;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 10px;
+}
+
+table, th, td {
+  border: 1px solid #d3d3d3;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.btn {
+  cursor: pointer;
+  border: none;
+  margin: auto;
+  padding: 6px 12px;
+}
+
+.btn-edit:before {
+  content: "✎";
+}
+
+.btn-delete:before {
+  content: "✖";
+}
+
+.modal {
+  z-index: 1;
+  background-color: #0006;
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: auto;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  border: 1px solid #888;
+  width: 80%;
+  margin: 15% auto;
+  padding: 20px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus {
+  color: #000;
+  cursor: pointer;
+  text-decoration: none;
+}
+/*# sourceMappingURL=admin.2a7a7745.css.map */
