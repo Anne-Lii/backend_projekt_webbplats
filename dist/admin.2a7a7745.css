@@ -100,12 +100,11 @@ th, td {
   z-index: 1;
   background-color: #0006;
   width: 100%;
-  max-width: 500px;
-  height: 40%;
+  height: 100%;
   display: none;
   position: fixed;
-  top: 40%;
-  left: 40%;
+  top: 0;
+  left: 0;
   overflow: auto;
 }
 
@@ -114,6 +113,7 @@ th, td {
   border: 1px solid #888;
   border-radius: 5px;
   width: 80%;
+  max-width: 500px;
   margin: 15% auto;
   padding: 30px;
 }
@@ -153,5 +153,15 @@ th, td {
   color: #000;
   cursor: pointer;
   text-decoration: none;
+}
+
+#submitBtn {
+  color: #fff;
+  background-color: #487a78;
+  border-radius: 5px;
+  width: 60%;
+  margin: 10px auto;
+  padding: 8px 0;
+  font-size: 16px;
 }
 /*# sourceMappingURL=admin.2a7a7745.css.map */
