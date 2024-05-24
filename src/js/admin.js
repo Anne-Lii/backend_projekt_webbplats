@@ -121,9 +121,11 @@ document.addEventListener("DOMContentLoaded", () => {
             cellEdit.appendChild(editButton);
 
             const deleteButton = document.createElement('button');
-            deleteButton.className = 'btn btn-delete';
-            deleteButton.onclick = () => deleteItem(item.id, item.category);
+            deleteButton.setAttribute('data-id', item._id);
+            deleteButton.className = 'btn btn-delete';           
+            deleteButton.onclick = () => deleteItem(deleteButton.getAttribute('data-id'), item.category, item.food ? 'food' : 'drink'); // Använd ID:et från data-attributet i deleteItem-funktionen
             cellDelete.appendChild(deleteButton);
+            
         });
 
         // Show the table after it has been filled
@@ -192,12 +194,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
                try {
             const response = await fetch(`${apiUrl}/${currentItem._id}`, {
+                
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(updatedItem)
             });
+            console.log(response);//-----------------------------------------------TA BORT!
 
             if (!response.ok) {
                 throw new Error('Failed to update item');
@@ -220,10 +224,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
     });
-    
-    function deleteItem(id, category, type) {
-        const apiUrl = type === 'food' ? foodUrl : drinkUrl;
 
+    function deleteItem(id, category, type) {
+
+        const apiUrl = type === 'food' ? foodUrl : drinkUrl;
+    
         fetch(`${apiUrl}/${id}`, {
             method: 'DELETE'
         })
@@ -235,7 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then(result => {
             console.log('Deleted item:', result);
-
+    
             // Refresh the list of items or update the table directly
             if (type === 'food') {
                 fetchFoodItemsAndDraw(category);
@@ -247,4 +252,5 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error('Error deleting item:', error);
         });
     }
+    
 });

@@ -686,8 +686,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
             editButton.onclick = ()=>showModal(item);
             cellEdit.appendChild(editButton);
             const deleteButton = document.createElement("button");
+            deleteButton.setAttribute("data-id", item._id);
             deleteButton.className = "btn btn-delete";
-            deleteButton.onclick = ()=>deleteItem(item.id, item.category);
+            deleteButton.onclick = ()=>deleteItem(deleteButton.getAttribute("data-id"), item.category, item.food ? "food" : "drink"); // Använd ID:et från data-attributet i deleteItem-funktionen
             cellDelete.appendChild(deleteButton);
         });
         // Show the table after it has been filled
@@ -747,6 +748,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 },
                 body: JSON.stringify(updatedItem)
             });
+            console.log(response); //-----------------------------------------------TA BORT!
             if (!response.ok) throw new Error("Failed to update item");
             const result = await response.json();
             console.log("Updated item:", result);
