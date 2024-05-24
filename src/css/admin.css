@@ -15,22 +15,12 @@ header h1 {
     text-shadow: 2px 2px black;
 }
 
-header button {
-    background-color: #e9e6d4;
-    padding: 5px 20px;
-    margin: 0 0 20px 50px;
-   
-}
-
-header button:hover {
-    background-color:  #cfcec6;
-    box-shadow: 5px 5px 10px black;
-}
-
 .vertical_menu {
     width: 50%;
     max-width: 300px;
     float: left;
+    display: flex;
+    flex-direction: column;
     
 }
 
@@ -42,7 +32,7 @@ header button:hover {
     text-decoration: none;
     font-size: 18px;
     border: 1px solid grey;
-    border-radius: 3px;
+    border-radius: 5px;
     
 }
 
@@ -51,14 +41,38 @@ header button:hover {
     box-shadow: 5px 5px 10px black;
 }
 
+#menu_container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+}
+
+#logoutBtn {
+    background-color: #cfcec6;
+    padding: 10px;
+    font-size: 16px;
+    width: 50%;
+    max-width: 150px;
+    margin: 10px 0 0 50px;
+    border-radius: 5px;
+}
+
+#logoutBtn:hover {
+    background-color:  #cfcec6;
+    box-shadow: 5px 5px 10px black;
+}
+
 
 main {
-    width: 100%;
-    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    padding: 0 40px ;
     max-width: 1200px;
-    min-height: 80vh;
     margin: auto;
     background-color: rgb(230, 224, 217);
+    margin-top: -250px;
+  
 }
 
 main h1 {
@@ -90,6 +104,16 @@ td {
     font-size: 16px;
 }
 
+#addDrinkButton, #addFoodButton {
+    background-color: rgb(72, 122, 120);
+    color: #fff;
+    width: 20%;
+    padding: 8px 0;  
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 10px auto 0 auto;
+}
+
 .btn {
     padding: 6px 12px;
     margin: auto;
@@ -97,14 +121,14 @@ td {
     border: none;
 }
 
+/* Pencil symbol for edit */
 .btn-edit::before {
     content: '\270E';
-    /* Pencil symbol */
 }
 
+/* Cross symbol for delete*/
 .btn-delete::before {
     content: '\2716';
-    /* Cross symbol */
 }
 
 /* Modal styles */

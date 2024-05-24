@@ -14,27 +14,18 @@ header h1 {
   padding: 50px 0 30px 50px;
 }
 
-header button {
-  background-color: #e9e6d4;
-  margin: 0 0 20px 50px;
-  padding: 5px 20px;
-}
-
-header button:hover {
-  background-color: #cfcec6;
-  box-shadow: 5px 5px 10px #000;
-}
-
 .vertical_menu {
   float: left;
+  flex-direction: column;
   width: 50%;
   max-width: 300px;
+  display: flex;
 }
 
 .vertical_menu a {
   color: #e9e6d4;
   border: 1px solid gray;
-  border-radius: 3px;
+  border-radius: 5px;
   margin: 8px 0 8px 50px;
   padding: 8px 0 8px 20px;
   font-size: 18px;
@@ -47,13 +38,35 @@ header button:hover {
   box-shadow: 5px 5px 10px #000;
 }
 
+#menu_container {
+  grid-gap: 10px;
+  grid-template-columns: 1fr;
+  display: grid;
+}
+
+#logoutBtn {
+  background-color: #cfcec6;
+  border-radius: 5px;
+  width: 50%;
+  max-width: 150px;
+  margin: 10px 0 0 50px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+#logoutBtn:hover {
+  background-color: #cfcec6;
+  box-shadow: 5px 5px 10px #000;
+}
+
 main {
+  grid-gap: 20px;
   background-color: #e6e0d9;
-  width: 100%;
+  grid-template-columns: 1fr;
   max-width: 1200px;
-  min-height: 80vh;
-  margin: auto;
-  padding: 40px;
+  margin: -250px auto auto;
+  padding: 0 40px;
+  display: grid;
 }
 
 main h1 {
@@ -78,6 +91,16 @@ table, th, td {
 th, td {
   text-align: left;
   padding: 8px;
+  font-size: 16px;
+}
+
+#addDrinkButton, #addFoodButton {
+  color: #fff;
+  background-color: #487a78;
+  border-radius: 5px;
+  width: 20%;
+  margin: 10px auto 0;
+  padding: 8px 0;
   font-size: 16px;
 }
 

@@ -749,8 +749,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
     document.getElementById("updateForm").addEventListener("submit", async function(event) {
         event.preventDefault();
         const updatedItem = {
-            food: currentItem.food ? document.getElementById("name").value : undefined,
-            drinkname: currentItem.drinkname ? document.getElementById("name").value : undefined,
+            food: currentItem.food ? document.getElementById("name").value.toUpperCase() : undefined,
+            drinkname: currentItem.drinkname ? document.getElementById("name").value.toUpperCase() : undefined,
             description: document.getElementById("description").value,
             price: document.getElementById("price").value,
             category: document.getElementById("category").value
