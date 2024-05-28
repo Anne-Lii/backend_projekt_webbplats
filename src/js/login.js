@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     } else {
                         // Redirect user to admin protected route
                         window.location.href = "admin.html";
-                        loginMessage.textContent = 'Inloggning lyckades';
+                        
                     }
 
                 } else {

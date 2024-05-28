@@ -637,11 +637,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 const localtoken = localStorage.getItem("token");
                 if (!localtoken) //unvalid JTW message redirect to login
                 window.location.href = "login.html";
-                else {
-                    // Redirect user to admin protected route
-                    window.location.href = "admin.html";
-                    loginMessage.textContent = "Inloggning lyckades";
-                }
+                else // Redirect user to admin protected route
+                window.location.href = "admin.html";
             } else {
                 const errorMessage = await response.json();
                 loginMessage.textContent = errorMessage.error;

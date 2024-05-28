@@ -17,7 +17,7 @@ header h1 {
 .vertical_menu {
   float: left;
   flex-direction: column;
-  width: 50%;
+  width: 40%;
   max-width: 300px;
   display: flex;
 }
@@ -61,11 +61,13 @@ header h1 {
 
 main {
   grid-gap: 20px;
+  float: right;
   background-color: #e6e0d9;
   grid-template-columns: 1fr;
+  width: 60%;
   max-width: 1200px;
-  margin: -250px auto auto;
-  padding: 0 40px;
+  margin-top: -250px;
+  margin-right: 40px;
   display: grid;
 }
 
@@ -141,7 +143,7 @@ th, td {
   padding: 30px;
 }
 
-#updateModal label {
+#Modal label {
   width: 100%;
   margin-top: 20px;
   font-size: 18px;

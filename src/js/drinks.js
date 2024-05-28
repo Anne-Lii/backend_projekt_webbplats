@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(response => response.json())
         .then(data => {
             displayDrinks(data);
-            console.log(data);
+           
         })
         .catch(error => console.error("Ett fel uppstod när dryck skulle hämtas", error));
 

@@ -591,7 +591,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const url = "https://backend-projekt-api-2zmb.onrender.com/api/drink";
     fetch(url).then((response)=>response.json()).then((data)=>{
         displayDrinks(data);
-        console.log(data);
     }).catch((error)=>console.error("Ett fel uppstod n\xe4r dryck skulle h\xe4mtas", error));
     function displayDrinks(drinkItems) {
         const whiteDiv = document.getElementById("white");

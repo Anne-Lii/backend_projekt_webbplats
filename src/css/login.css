@@ -33,6 +33,10 @@ input {
     border-radius: 5px;
 }
 
+#loadingMessage {
+    color: #d8d2b2;
+}
+
 button {
     padding: 10px 30px;
     margin-top: 20px;

@@ -16,16 +16,16 @@
         <h1>Administratör</h1>
     </header>
 
-   <div id="menu_container">
-    <aside class="vertical_menu">
-        <a href="#" id="link_edit_food">Redigera mat</a>
-        <a href="#" id="link_edit_drinks">Redigera dryck</a>
-        <a href="#" id="link_edit_openhours">Redigera öppettider</a>
-        <a href="#" id="link_register_new">Registrera ny användare</a>
-    </aside>
+    <div id="menu_container">
+        <aside class="vertical_menu">
+            <a href="#" id="link_edit_food">Redigera mat</a>
+            <a href="#" id="link_edit_drinks">Redigera dryck</a>
+            <a href="#" id="link_edit_openhours">Redigera öppettider</a>
+            <a href="#" id="link_register_new">Registrera ny användare</a>
+        </aside>
 
-    <button id="logoutBtn">Logga ut</button>
-   </div>
+        <button id="logoutBtn">Logga ut</button>
+    </div>
 
     <main>
         <h1>Du är inloggad som administratör</h1>
@@ -301,7 +301,57 @@
                 <input type="textarea" id="description" name="description"><br>
                 <label for="price">Pris:</label>
                 <input type="text" id="price" name="price"><br>
-                <button type="submit" id="submitBtn">Lägg till</button>
+                <button type="submit" id="submitBtn">Uppdatera</button>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Food Modal -->
+    <div id="addFoodModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="foodForm">
+                <label for="foodcategory">Kategori:</label>
+                <select id="foodcategory" name="foodcategory">
+                    <option value="smårätter">Smårätter</option>
+                    <option value="varmrätt">Varmrätt</option>
+                    <option value="dessert">Dessert</option>
+                </select><br>
+                <label for="foodname">Namn:</label>
+                <input type="text" id="foodname" name="foodname"><br>
+                <label for="fooddescription">Beskrivning:</label>
+                <input type="textarea" id="fooddescription" name="fooddescription"><br>
+                <label for="foodprice">Pris:</label>
+                <input type="text" id="foodprice" name="foodprice"><br>
+                <button type="submit" id="addFoodSubmitBtn">Lägg till</button>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Drink Modal -->
+    <div id="addDrinkModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="drinkForm">
+                <label for="drinkcategory">Kategori:</label>
+                <select id="drinkcategory" name="drinkcategory">
+                    <option value="white">White</option>
+                    <option value="red">Red</option>
+                    <option value="rose">Rose</option>
+                    <option value="champagne">Champagne</option>
+                    <option value="drink">Drink</option>
+                    <option value="beer">Beer</option>
+                    <option value="alcoholfree">Alcoholfree</option>
+                </select><br>
+                <label for="drinkname">Namn:</label>
+                <input type="text" id="drinkname" name="drinkname"><br>
+                <label for="drinkdescription">Beskrivning:</label>
+                <input type="textarea" id="drinkdescription" name="drinkdescription"><br>
+                <label for="drinkprice">Pris:</label>
+                <input type="text" id="drinkprice" name="drinkprice"><br>
+                <button type="submit" id="addDrinkSubmitBtn">Lägg till</button>
 
             </form>
         </div>

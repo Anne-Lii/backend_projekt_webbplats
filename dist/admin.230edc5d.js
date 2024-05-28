@@ -638,12 +638,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 return "";
         }
     }
-    async function fetchDrinkItemsAndDraw(type) {
+    async function fetchDrinkItemsAndDraw(category) {
         try {
-            const drinkItems = await fetchItems(drinkUrl, type);
+            const drinkItems = await fetchItems(drinkUrl);
             // Filtera dryckesobjekten baserat på kategori
-            const filteredDrinkItems = drinkItems.filter((item)=>item.category.toLowerCase() === type.toLowerCase());
-            drawItems(filteredDrinkItems, `${type}Table`);
+            const filteredDrinkItems = drinkItems.filter((item)=>item.category.toLowerCase() === category.toLowerCase());
+            drawItems(filteredDrinkItems, getTableIdFromCategory(category));
         } catch (error) {
             console.error("Error fetching drink items:", error);
         }
@@ -664,10 +664,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
             return;
         }
         const tableBody = table.getElementsByTagName("tbody")[0];
-        if (!tableBody) {
-            console.error(`Table body not found in table with id '${tableId}'.`);
-            return;
-        }
         // Clear the existing rows in the table body
         tableBody.innerHTML = "";
         items.forEach((item)=>{
@@ -699,36 +695,42 @@ document.addEventListener("DOMContentLoaded", ()=>{
         table.style.display = "table";
     }
     // Get the modal
-    const modal = document.getElementById("updateModal");
+    const updateModal = document.getElementById("updateModal");
+    const foodModal = document.getElementById("addFoodModal");
+    const drinkModal = document.getElementById("addDrinkModal");
     // Get the <span> element that closes the modal
     const span = document.getElementsByClassName("close")[0];
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
-        modal.style.display = "none";
+        updateModal.style.display = "none";
+        foodModal.style.display = "none";
+        drinkModal.style.display = "none";
     };
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
-        if (event.target == modal) modal.style.display = "none";
+        if (event.target == updateModal) updateModal.style.display = "none";
+        else if (event.target == foodModal) foodModal.style.display = "none";
+        else if (event.target == drinkModal) drinkModal.style.display = "none";
     };
-    // Button to add new foodItems
+    // Button to add new food item
     document.getElementById("addFoodButton").addEventListener("click", ()=>{
         isAddingNew = true;
-        showModal({
-            category: "sm\xe5r\xe4tter",
+        showFoodModal({
+            category: "",
             food: "",
             description: "",
             price: ""
-        }); // Förinställ modal för ny mat
+        }); // Set modal for adding new food
     });
-    // Button to add new drinkitems
+    // Button to add new drink item
     document.getElementById("addDrinkButton").addEventListener("click", ()=>{
         isAddingNew = true;
-        showModal({
-            category: "white",
+        showDrinkModal({
+            category: "",
             drinkname: "",
             description: "",
             price: ""
-        }); // Förinställ modal för ny dryck
+        }); // Set modal for adding new drink
     });
     function showModal(item) {
         currentItem = item; // Store the current item being edited
@@ -738,13 +740,96 @@ document.addEventListener("DOMContentLoaded", ()=>{
         document.getElementById("category").value = item ? item.category.toLowerCase() : "";
         // Set the text of the submit button based on whether we're adding or updating an item
         const submitBtn = document.getElementById("submitBtn");
-        submitBtn.textContent = isAddingNew ? "L\xe4gg till" : "Uppdatera";
         // Add event listener to update isAddingNew flag when submitting
         submitBtn.addEventListener("click", function() {
             isAddingNew = false; // Change the value to false when updating
         });
-        modal.style.display = "block";
+        updateModal.style.display = "block";
     }
+    function showFoodModal(item) {
+        currentItem = item; // Store the current item being edited
+        document.getElementById("foodname").value = item ? item.food : "";
+        document.getElementById("fooddescription").value = item ? item.description : "";
+        document.getElementById("foodprice").value = item ? item.price : "";
+        document.getElementById("foodcategory").value = item ? item.category : "";
+        // Set the text of the submit button based on whether we're adding or updating an item
+        const addFoodSubmitBtn = document.getElementById("addFoodSubmitBtn");
+        // Add event listener to update isAddingNew flag when submitting
+        addFoodSubmitBtn.addEventListener("click", async function() {
+            isAddingNew = true; // Change the value to false when updating
+            foodModal.style.display = "none"; // Hide the modal after adding
+        });
+        foodModal.style.display = "block";
+    }
+    function showDrinkModal(item) {
+        currentItem = item; // Store the current item being edited
+        document.getElementById("drinkname").value = item ? item.drinkname : "";
+        document.getElementById("drinkdescription").value = item ? item.description : "";
+        document.getElementById("drinkprice").value = item ? item.price : "";
+        document.getElementById("drinkcategory").value = item ? item.category : "";
+        // Set the text of the submit button based on whether we're adding or updating an item
+        const addDrinkSubmitBtn = document.getElementById("addDrinkSubmitBtn");
+        // Add event listener to update isAddingNew flag when submitting
+        addDrinkSubmitBtn.addEventListener("click", function() {
+            isAddingNew = true; // Change the value to false when updating
+        });
+        drinkModal.style.display = "block";
+    }
+    // Händelselyssnare för att lägga till ny matpost
+    document.getElementById("foodForm").addEventListener("submit", async function(event) {
+        event.preventDefault();
+        // get values from foodForm
+        const foodItem = {
+            category: document.getElementById("foodcategory").value,
+            food: document.getElementById("foodname").value.toUpperCase(),
+            description: document.getElementById("fooddescription").value,
+            price: document.getElementById("foodprice").value
+        };
+        try {
+            const response = await fetch(foodUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(foodItem)
+            });
+            const data = await response.json();
+            console.log("New food item added:", data);
+        } catch (error) {
+            console.error("Error adding new food item:", error);
+        }
+        const selectedCategory = document.getElementById("foodcategory").value.toLowerCase(); // Hämta vald kategori och gör om den till gemener
+        fetchFoodItemsAndDraw(selectedCategory); //update table
+    });
+    // Händelselyssnare för att lägga till ny dryckspost
+    document.getElementById("drinkForm").addEventListener("submit", async function(event) {
+        event.preventDefault();
+        // get values from drinkForm
+        const drinkItem = {
+            category: document.getElementById("drinkcategory").value,
+            drinkname: document.getElementById("drinkname").value.toUpperCase(),
+            description: document.getElementById("drinkdescription").value,
+            price: document.getElementById("drinkprice").value
+        };
+        // Skicka POST-anrop till dryck-API för att lägga till ny dryckspost
+        // Använd rätt API-URL för att lägga till drycksposten
+        try {
+            const response = await fetch(drinkUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(drinkItem)
+            });
+            const data = await response.json();
+            console.log("New drink item added:", data);
+        // Uppdatera dryckbordet eller gör någon annan åtgärd efter att ha lagt till drycksposten
+        } catch (error) {
+            console.error("Error adding new drink item:", error);
+        }
+        const selectedCategory = document.getElementById("drinkcategory").value.toLowerCase(); // Hämta vald kategori och gör om den till gemener
+        fetchDrinkItemsAndDraw(selectedCategory); //update table
+    });
     //function to handle update of items from form
     document.getElementById("updateForm").addEventListener("submit", async function(event) {
         event.preventDefault();
@@ -757,15 +842,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         };
         const apiUrl = currentItem.food ? foodUrl : drinkUrl;
         try {
-            let response;
-            if (isAddingNew) response = await fetch(apiUrl, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(updatedItem)
-            });
-            else response = await fetch(`${apiUrl}/${currentItem._id}`, {
+            const response = await fetch(`${apiUrl}/${currentItem._id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
@@ -774,12 +851,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
             });
             if (!response.ok) throw new Error(isAddingNew ? "Failed to add new item" : "Failed to update item");
             const result = await response.json();
-            console.log(isAddingNew ? "Added new item:" : "Updated item:", result);
+            console.log(result);
             // Refresh the list of items or update the table directly
-            if (currentItem.food || isAddingNew && updatedItem.food) fetchFoodItemsAndDraw(currentItem.category);
+            if (currentItem.food || updatedItem.food) fetchFoodItemsAndDraw(currentItem.category);
             else fetchDrinkItemsAndDraw(currentItem.category);
-            modal.style.display = "none";
-            isAddingNew = false;
+            updateModal.style.display = "none";
         } catch (error) {
             console.error("Error updating or adding item:", error);
         }
