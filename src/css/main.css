@@ -70,6 +70,11 @@ nav ul li a {
     font-size: 20px;
 }
 
+.menu-btn {
+    display: none;
+   
+}
+
 #div_hero {
     display: flex;
     flex-direction: column;
@@ -130,10 +135,124 @@ nav ul li a {
     display: none;
 }
 
-/* Layout for smaller screens than 600px*/
-@media (max-width: 600px) {
-    .menu-item {
-        flex: 1 1 100%; /* Ta upp hela bredden på små skärmar */
-        font-size: 0.9em;
+@media screen and (max-width: 1000px) {
+
+    nav {
+        font-size: 1.1em;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 250px;
+        padding: 0;
+        background-color: black;
+        opacity: 70%;
+        display: none;
     }
+  
+
+    nav ul {
+        width: 100%;
+        list-style-type: none;
+        text-align: center;
+        margin: 20px auto;
+        float: none;
+        display: block;
+     
+    }
+
+    nav li {
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    nav li:hover {
+      text-decoration: underline 3px solid #d8d2b2;
+    }
+
+        /* Menu button to open menu */
+    .menu-btn {
+        display: flex;
+        align-items: center;
+        padding: 8px 15px ;
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+    }
+
+    .open {
+        margin: 0 1em;
+    }
+
+    .menu-btn:hover {
+        cursor: pointer;
+    }
+
+    .menu-icon {
+        margin-right: 10px;
+       
+    }
+
+    /* burgermenu bars */
+    .bars {
+        display: block;
+        width: 40px;
+        height: 5px;
+        background-color:  #d8d2b2;
+        margin: 7px 0;
+    }
+
+    .close {
+        margin: 1em 1.5em;
+        padding: 10px;
+    }
+
+    .cross1 {
+        width: 25px;
+        transform: rotate(45deg);
+        position: relative;
+        top: 5px;
+        border-radius: 5px;
+        
+    }
+
+    .cross2 {
+        width: 25px;
+        transform: rotate(135deg);
+        position: relative;
+        top: -7px;
+        border-radius: 5px;
+    }
+
+    #div_etoile {
+        width: 100%;
+        height:auto;
+        background-color: rgb(63, 62, 60);
+    }
+    
+#presentation {
+    display: block;
+    text-align: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    height: auto;
+}
+
+#presentation img {
+    max-height: 500px;
+    width: auto;
+    margin: 30px auto;
+}
+
+#presentation p {
+    display: block;
+    width: 90%;
+    margin: auto;
+    max-height: 1000px;
+    padding: 0 0 100px 0;
+}
+
+
+
 }

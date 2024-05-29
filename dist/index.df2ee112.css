@@ -63,7 +63,8 @@
 
 #div_meny h3 {
   border-bottom: 2px solid #d8d2b2;
-  width: 600px;
+  width: 90%;
+  max-width: 600px;
   margin-top: 200px;
   margin-bottom: 50px;
   padding-bottom: 30px;
@@ -80,10 +81,18 @@
   display: flex;
 }
 
-@media (width <= 600px) {
+@media screen and (width <= 600px) {
   .menu-item {
     flex: 100%;
+    margin: 0 10px;
+    padding: 10px;
     font-size: .9em;
+  }
+
+  #div_meny h3 {
+    margin-top: 100px;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
   }
 }
 /*# sourceMappingURL=index.df2ee112.css.map */

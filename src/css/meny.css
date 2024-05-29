@@ -73,7 +73,8 @@
     font-size: 34px;
     display: inline-block;
     border-bottom: 2px solid  #d8d2b2;
-    width: 600px; 
+    width: 90%;
+    max-width: 600px; 
     margin-top: 200px;
     margin-bottom: 50px; 
     padding-bottom: 30px;
@@ -92,9 +93,20 @@
 
 
 /* Layout for smaller screens than 600px*/
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
     .menu-item {
         flex: 1 1 100%; /* Ta upp hela bredden på små skärmar */
         font-size: 0.9em;
+    }
+
+    .menu-item {
+        padding: 10px;
+        margin: 0 10px; 
+    }
+
+    #div_meny h3 {
+        margin-top: 100px;
+        margin-bottom: 10px; 
+        padding-bottom: 20px;
     }
 }

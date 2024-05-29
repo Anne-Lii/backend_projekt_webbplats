@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +6,7 @@
 body {
     background-color: rgb(72, 122, 120);
     font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, serif;
-}    
+}
 
 header h1 {
     color: #e9e6d4;
@@ -21,7 +20,7 @@ header h1 {
     float: left;
     display: flex;
     flex-direction: column;
-    
+
 }
 
 .vertical_menu a {
@@ -33,7 +32,7 @@ header h1 {
     font-size: 18px;
     border: 1px solid grey;
     border-radius: 5px;
-    
+
 }
 
 .vertical_menu a:hover {
@@ -58,7 +57,7 @@ header h1 {
 }
 
 #logoutBtn:hover {
-    background-color:  #cfcec6;
+    background-color: #cfcec6;
     box-shadow: 5px 5px 10px black;
 }
 
@@ -69,21 +68,37 @@ main {
     grid-gap: 20px;
     width: 60%;
     max-width: 1200px;
-    margin-right: 40px;
-    float: right;
+    margin: auto;
     background-color: rgb(230, 224, 217);
-    margin-top: -250px;  
+    margin-top: -250px;
+    margin-bottom: 100px;
 }
 
 main h1 {
     text-align: center;
-   padding: 50px;
+    padding: 60px 0 10px 0;
+    font-size: 40px;
 }
 
-#foodSection, #drinkSection, h2, h3{
-margin: 30px 0 10px 20px;
+#foodSection,
+#drinkSection,
+#registrationSection {
+    padding-bottom: 50px;
+    margin: auto;
+    width: 100%;
 }
 
+#foodSection,
+#drinkSection,
+#registrationSection,
+h2,
+h3 {
+    margin: 30px 0 10px 20px;
+}
+
+
+
+/* Table */
 table {
     width: 90%;
     border-collapse: collapse;
@@ -104,11 +119,12 @@ td {
     font-size: 16px;
 }
 
-#addDrinkButton, #addFoodButton {
+#addDrinkButton,
+#addFoodButton {
     background-color: rgb(72, 122, 120);
     color: #fff;
     width: 20%;
-    padding: 8px 0;  
+    padding: 8px 0;
     font-size: 16px;
     border-radius: 5px;
     margin: 10px auto 0 auto;
@@ -131,7 +147,39 @@ td {
     content: '\2716';
 }
 
-/* Modal styles */
+
+
+/* Register new user*/
+#regForm {
+    padding: 10px 0 10px 50px;
+    width: 100%;
+    max-width: 500px;
+}
+
+#regForm label {
+    font-size: 20px;
+}
+
+#regForm input {
+    height: 24px;
+    width: 80%;
+    font-size: 16px;
+    padding-left: 1px;
+    margin: auto;
+}
+
+#regForm button {
+    background-color: rgb(72, 122, 120);
+    color: #fff;
+    width: 81%;
+    padding: 8px 0;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 10px auto 0 auto;
+}
+
+/* Modals */
+
 .modal {
     display: none;
     position: fixed;
@@ -156,16 +204,16 @@ td {
 }
 
 #Modal label {
-font-size: 18px;
-width: 100%;
-margin-top: 20px;
+    font-size: 18px;
+    width: 100%;
+    margin-top: 20px;
 }
 
 #updateModal select {
     width: 100%;
     font-size: 16px;
     height: 30px;
-    
+
 }
 
 #updateModal input {
@@ -196,15 +244,187 @@ margin-top: 20px;
 
 .modalFieldMessage {
     color: rgb(194, 85, 35);
-    font-size: 14px;    
+    font-size: 14px;
 }
 
 #submitBtn {
     background-color: rgb(72, 122, 120);
     color: #fff;
     width: 60%;
-    padding: 8px 0;  
+    padding: 8px 0;
     font-size: 16px;
     border-radius: 5px;
     margin: 10px auto;
+}
+
+@media screen and (max-width: 1600px)  and (min-width: 901px){
+
+    main {
+        float: right;
+        margin-right: 10px;
+    }
+    
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        padding: 10px 0px;
+        text-align: center;
+        font-size: 14px;
+    }
+
+
+    #foodSection,
+    #drinkSection,
+    #registrationSection {
+        margin: 30px 0 10px 0;
+    }
+
+    #addDrinkButton,
+    #addFoodButton {
+        width: 100%;
+        max-width: 400px;
+        margin-left: 20px;       
+    }
+
+    /* Register new user*/
+    #regForm {
+        padding: 10px 0 10px 50px;
+        margin: auto;
+    }
+
+    #registerTitle {
+        width: 100%;
+        text-align: center;
+        padding-bottom: 50px;  
+        margin: 30px 0 0 0; 
+    }
+
+    #regForm input {
+        height: 24px;
+        width: 90%;
+        font-size: 16px;
+        padding-left: 1px;
+        margin: 5px auto;
+    }
+
+    #regForm button {
+        background-color: rgb(72, 122, 120);
+        color: #fff;
+        width: 91%;
+        padding: 8px 0;
+        font-size: 16px;
+        border-radius: 5px;
+        margin: 10px auto 0 auto;
+    }
+
+}
+
+@media screen and (max-width: 900px) {
+   
+    header h1 {       
+        padding: 50px 0;
+        width: 100%;
+        max-width: 300px;
+        margin: auto;
+    }
+
+    #menu_container {
+        width: 100%;
+    }
+    
+    .vertical_menu {
+        width: 100%;
+        max-width: 300px;
+        margin: auto;
+        float: none;
+        display: block;
+        flex-direction: row;
+
+    }
+
+    .vertical_menu a {
+        padding: 8px 5px ;
+        margin: 5px auto;  
+    }
+
+    #logoutBtn {
+        width: 100%;
+        max-width: 300px;
+        margin: 10px auto;
+    }
+
+    main {
+        float:none;
+        width: 100%;
+        margin-top: 20px;
+        margin-right:0;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    main h1 {
+        padding: 60px 0 0 0;
+        font-size: 24px;
+    }
+
+    #foodSection,
+    #drinkSection,
+    #registrationSection {
+        margin: 30px 0 10px 0;
+    }
+
+    h2 {
+        margin: 50px 0 20px 10px;
+        font-size: 32px;
+    }  
+    
+    h3 {
+        margin: 50px 0 20px 10px;
+        font-size: 24px;
+    }
+
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        padding: 10px 0px;
+        text-align: center;
+        font-size: 12px;
+    }
+
+    #addDrinkButton,
+    #addFoodButton {
+        width: 80%;
+    }
+
+    .btn {
+        padding: 5px 5px;
+    }
+
+    /* Pencil symbol for edit */
+    .btn-edit::before {
+        content: '\270E';
+    }
+
+    /* Cross symbol for delete*/
+    .btn-delete::before {
+        content: '\2716';
+    }
+
+    /* Register new user*/
+    #regForm {
+        padding: 10px 0;
+        margin: auto;
+    }
+
+
 }

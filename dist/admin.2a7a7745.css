@@ -61,22 +61,27 @@ header h1 {
 
 main {
   grid-gap: 20px;
-  float: right;
   background-color: #e6e0d9;
   grid-template-columns: 1fr;
   width: 60%;
   max-width: 1200px;
-  margin-top: -250px;
-  margin-right: 40px;
+  margin: -250px auto 100px;
   display: grid;
 }
 
 main h1 {
   text-align: center;
-  padding: 50px;
+  padding: 60px 0 10px;
+  font-size: 40px;
 }
 
-#foodSection, #drinkSection, h2, h3 {
+#foodSection, #drinkSection, #registrationSection {
+  width: 100%;
+  margin: auto;
+  padding-bottom: 50px;
+}
+
+#foodSection, #drinkSection, #registrationSection, h2, h3 {
   margin: 30px 0 10px 20px;
 }
 
@@ -119,6 +124,34 @@ th, td {
 
 .btn-delete:before {
   content: "✖";
+}
+
+#regForm {
+  width: 100%;
+  max-width: 500px;
+  padding: 10px 0 10px 50px;
+}
+
+#regForm label {
+  font-size: 20px;
+}
+
+#regForm input {
+  width: 80%;
+  height: 24px;
+  margin: auto;
+  padding-left: 1px;
+  font-size: 16px;
+}
+
+#regForm button {
+  color: #fff;
+  background-color: #487a78;
+  border-radius: 5px;
+  width: 81%;
+  margin: 10px auto 0;
+  padding: 8px 0;
+  font-size: 16px;
 }
 
 .modal {
@@ -193,5 +226,156 @@ th, td {
   margin: 10px auto;
   padding: 8px 0;
   font-size: 16px;
+}
+
+@media screen and (width <= 1600px) and (width >= 901px) {
+  main {
+    float: right;
+    margin-right: 10px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 14px;
+  }
+
+  #foodSection, #drinkSection, #registrationSection {
+    margin: 30px 0 10px;
+  }
+
+  #addDrinkButton, #addFoodButton {
+    width: 100%;
+    max-width: 400px;
+    margin-left: 20px;
+  }
+
+  #regForm {
+    margin: auto;
+    padding: 10px 0 10px 50px;
+  }
+
+  #registerTitle {
+    text-align: center;
+    width: 100%;
+    margin: 30px 0 0;
+    padding-bottom: 50px;
+  }
+
+  #regForm input {
+    width: 90%;
+    height: 24px;
+    margin: 5px auto;
+    padding-left: 1px;
+    font-size: 16px;
+  }
+
+  #regForm button {
+    color: #fff;
+    background-color: #487a78;
+    border-radius: 5px;
+    width: 91%;
+    margin: 10px auto 0;
+    padding: 8px 0;
+    font-size: 16px;
+  }
+}
+
+@media screen and (width <= 900px) {
+  header h1 {
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+    padding: 50px 0;
+  }
+
+  #menu_container {
+    width: 100%;
+  }
+
+  .vertical_menu {
+    float: none;
+    flex-direction: row;
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+    display: block;
+  }
+
+  .vertical_menu a {
+    margin: 5px auto;
+    padding: 8px 5px;
+  }
+
+  #logoutBtn {
+    width: 100%;
+    max-width: 300px;
+    margin: 10px auto;
+  }
+
+  main {
+    float: none;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+    margin-right: 0;
+    font-size: 14px;
+  }
+
+  main h1 {
+    padding: 60px 0 0;
+    font-size: 24px;
+  }
+
+  #foodSection, #drinkSection, #registrationSection {
+    margin: 30px 0 10px;
+  }
+
+  h2 {
+    margin: 50px 0 20px 10px;
+    font-size: 32px;
+  }
+
+  h3 {
+    margin: 50px 0 20px 10px;
+    font-size: 24px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    text-align: center;
+    padding: 10px 0;
+    font-size: 12px;
+  }
+
+  #addDrinkButton, #addFoodButton {
+    width: 80%;
+  }
+
+  .btn {
+    padding: 5px;
+  }
+
+  .btn-edit:before {
+    content: "✎";
+  }
+
+  .btn-delete:before {
+    content: "✖";
+  }
+
+  #regForm {
+    margin: auto;
+    padding: 10px 0;
+  }
 }
 /*# sourceMappingURL=admin.2a7a7745.css.map */

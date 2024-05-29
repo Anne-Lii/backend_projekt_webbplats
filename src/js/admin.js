@@ -16,10 +16,12 @@ document.addEventListener("DOMContentLoaded", () => {
         fetchFoodItemsAndDraw("varmrätt");
         fetchFoodItemsAndDraw("dessert");
 
-        //change FOOD display:none to block
+        //change FOOD display: none to block
         document.getElementById('foodSection').style.display = 'block';
-        //change DRINK display:block to none
+        //change DRINK display: block to none
         document.getElementById('drinkSection').style.display = 'none';
+        //change REGISTER display: block to none
+        document.getElementById('registrationSection').style.display = 'none'; 
     });
 
     // Link to show and edit drinks
@@ -33,10 +35,24 @@ document.addEventListener("DOMContentLoaded", () => {
         fetchDrinkItemsAndDraw("beer");
         fetchDrinkItemsAndDraw("alcoholfree");
 
-        //change FOOD display:block to none
+        //change FOOD display: block to none
         document.getElementById('foodSection').style.display = 'none';
-        //change DRINK display:none to block
+        //change DRINK display: none to block
         document.getElementById('drinkSection').style.display = 'block';
+        //change REGISTER display: block to none
+        document.getElementById('registrationSection').style.display = 'none'; 
+    });
+
+    // Link to register new user
+    document.getElementById('link_register_new').addEventListener('click', function (event) {
+        event.preventDefault();
+        
+        //change REGISTER display: none to block
+        document.getElementById('registrationSection').style.display = 'block';        
+        //change FOOD display: block to none
+        document.getElementById('foodSection').style.display = 'none';
+        //change DRINK display: block to none
+        document.getElementById('drinkSection').style.display = 'none';
     });
 
     async function fetchFoodItemsAndDraw(category) {
