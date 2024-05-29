@@ -51,17 +51,32 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function getTableIdFromCategory(category) {
-        switch (category) {
+        switch (category.toLowerCase()) {
             case "smårätter":
                 return "smallDishesTable";
             case "varmrätt":
                 return "mainCoursesTable";
             case "dessert":
                 return "dessertTable";
+            case "white":
+                return "whiteTable";
+            case "red":
+                return "redTable";
+            case "rose":
+                return "roseTable";
+            case "champagne":
+                return "champagneTable";
+            case "drink":
+                return "drinkTable";
+            case "beer":
+                return "beerTable";
+            case "alcoholfree":
+                return "alcoholfreeTable";
             default:
                 return "";
         }
     }
+    
 
     async function fetchDrinkItemsAndDraw(category) {
         try {
@@ -94,13 +109,13 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
         const tableBody = table.getElementsByTagName('tbody')[0];
-       
 
-             // Clear the existing rows in the table body
-            tableBody.innerHTML = "";
-        
 
-      
+        // Clear the existing rows in the table body
+        tableBody.innerHTML = "";
+
+
+
 
         items.forEach(item => {
             const row = tableBody.insertRow();
@@ -144,13 +159,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const drinkModal = document.getElementById("addDrinkModal");
 
     // Get the <span> element that closes the modal
-    const span = document.getElementsByClassName("close")[0];
+    const closeButtons = document.getElementsByClassName("close");
 
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-        updateModal.style.display = "none";
-        foodModal.style.display = "none";
-        drinkModal.style.display = "none";
+    // Add an event listener to each <span> to close the corresponding modal
+    for (let i = 0; i < closeButtons.length; i++) {
+        closeButtons[i].onclick = function () {
+            updateModal.style.display = "none";
+            foodModal.style.display = "none";
+            drinkModal.style.display = "none";
+        }
     }
 
     // When the user clicks anywhere outside of the modal, close it
@@ -209,10 +226,6 @@ document.addEventListener("DOMContentLoaded", () => {
         addFoodSubmitBtn.addEventListener("click", async function () {
             isAddingNew = true; // Change the value to false when updating
             foodModal.style.display = "none"; // Hide the modal after adding
-
-    
-
-           
         });
 
         foodModal.style.display = "block";
@@ -231,6 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Add event listener to update isAddingNew flag when submitting
         addDrinkSubmitBtn.addEventListener("click", function () {
             isAddingNew = true; // Change the value to false when updating
+            drinkModal.style.display = "none"; // Hide the modal after adding
         });
 
         drinkModal.style.display = "block";
@@ -380,6 +394,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     }
 
+    /*
     //function to register a new admin
     document.getElementById('registrationSection').addEventListener('click', function (event) {
         event.preventDefault();
@@ -392,6 +407,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('drinkSection').style.display = 'none';
 
     });
-
+*/
 
 });

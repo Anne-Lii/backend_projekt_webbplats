@@ -627,13 +627,27 @@ document.addEventListener("DOMContentLoaded", ()=>{
         }
     }
     function getTableIdFromCategory(category) {
-        switch(category){
+        switch(category.toLowerCase()){
             case "sm\xe5r\xe4tter":
                 return "smallDishesTable";
             case "varmr\xe4tt":
                 return "mainCoursesTable";
             case "dessert":
                 return "dessertTable";
+            case "white":
+                return "whiteTable";
+            case "red":
+                return "redTable";
+            case "rose":
+                return "roseTable";
+            case "champagne":
+                return "champagneTable";
+            case "drink":
+                return "drinkTable";
+            case "beer":
+                return "beerTable";
+            case "alcoholfree":
+                return "alcoholfreeTable";
             default:
                 return "";
         }
@@ -699,9 +713,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const foodModal = document.getElementById("addFoodModal");
     const drinkModal = document.getElementById("addDrinkModal");
     // Get the <span> element that closes the modal
-    const span = document.getElementsByClassName("close")[0];
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
+    const closeButtons = document.getElementsByClassName("close");
+    // Add an event listener to each <span> to close the corresponding modal
+    for(let i = 0; i < closeButtons.length; i++)closeButtons[i].onclick = function() {
         updateModal.style.display = "none";
         foodModal.style.display = "none";
         drinkModal.style.display = "none";
@@ -772,6 +786,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         // Add event listener to update isAddingNew flag when submitting
         addDrinkSubmitBtn.addEventListener("click", function() {
             isAddingNew = true; // Change the value to false when updating
+            drinkModal.style.display = "none"; // Hide the modal after adding
         });
         drinkModal.style.display = "block";
     }
@@ -876,17 +891,20 @@ document.addEventListener("DOMContentLoaded", ()=>{
             console.error("Error deleting item:", error);
         });
     }
+/*
     //function to register a new admin
-    document.getElementById("registrationSection").addEventListener("click", function(event) {
+    document.getElementById('registrationSection').addEventListener('click', function (event) {
         event.preventDefault();
+
         //change REGISTER display:none to block
-        document.getElementById("registrationSection").style.display = "block";
+        document.getElementById('registrationSection').style.display = 'block';
         //change FOOD display:block to none
-        document.getElementById("foodSection").style.display = "none";
+        document.getElementById('foodSection').style.display = 'none';
         //change DRINK display:block to none
-        document.getElementById("drinkSection").style.display = "none";
+        document.getElementById('drinkSection').style.display = 'none';
+
     });
-});
+*/ });
 
 },{}]},["b2mJY","cHucQ"], "cHucQ", "parcelRequire4e03")
 

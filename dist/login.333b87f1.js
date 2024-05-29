@@ -608,7 +608,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
         // Get username and password from inlogForm
         const username = document.getElementById("username").value;
         const password = document.getElementById("password").value;
-        console.log(username); //----------------------------------------------TA BORT
         try {
             //send inlog to API
             const response = await fetch(url + "/login", {
@@ -625,7 +624,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
             if (response.ok) {
                 const data = await response.json();
                 const token = data.token;
-                console.log(token); //----------------------------------------------TA BORT
                 // save token in localStorage
                 localStorage.setItem("token", token);
                 //save username in localstorage

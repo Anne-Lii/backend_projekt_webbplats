@@ -29,17 +29,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 }, 1000);
             }
 
-
             // Get username and password from inlogForm
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
 
-            console.log(username);//----------------------------------------------TA BORT
-          
-
             try {
                 //send inlog to API
-                const response = await fetch(url+ "/login", {
+                const response = await fetch(url + "/login", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -54,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (response.ok) {
                     const data = await response.json();
                     const token = data.token;
-                    console.log(token);//----------------------------------------------TA BORT
 
                     // save token in localStorage
                     localStorage.setItem("token", token);
@@ -76,7 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     } else {
                         // Redirect user to admin protected route
                         window.location.href = "admin.html";
-                        
                     }
 
                 } else {
