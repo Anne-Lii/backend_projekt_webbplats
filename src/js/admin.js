@@ -254,6 +254,22 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('foodForm').addEventListener('submit', async function (event) {
         event.preventDefault();
 
+          // Check if all required fields have been filled
+    const name = document.getElementById("foodname").value;
+    const description = document.getElementById("fooddescription").value;
+    const price = document.getElementById("foodprice").value;
+    
+    if (!name || !description || !price) {
+        const modalFieldMessage = foodModal.querySelector('.modalFieldMessage');
+        modalFieldMessage.textContent = 'Alla fält måste fyllas i';
+        modalFieldMessage.style.display = 'block';
+        foodModal.style.display = 'block';
+        return; // Stop further execution if required fields are not filled
+    } else {
+        const modalFieldMessage = foodModal.querySelector('.modalFieldMessage');
+        modalFieldMessage.style.display = 'none';
+    }
+
         // get values from foodForm
         const foodItem = {
             category: document.getElementById('foodcategory').value,
@@ -284,9 +300,26 @@ document.addEventListener("DOMContentLoaded", () => {
         fetchFoodItemsAndDraw(selectedCategory);//update table
     });
 
+
     // Händelselyssnare för att lägga till ny dryckspost
     document.getElementById('drinkForm').addEventListener('submit', async function (event) {
         event.preventDefault();
+
+             // Check if all required fields have been filled
+    const name = document.getElementById("drinkname").value;
+    const description = document.getElementById("drinkdescription").value;
+    const price = document.getElementById("drinkprice").value;
+    
+    if (!name || !description || !price) {
+        const modalFieldMessage = drinkModal.querySelector('.modalFieldMessage');
+        modalFieldMessage.textContent = 'Alla fält måste fyllas i';
+        modalFieldMessage.style.display = 'block';
+        drinkModal.style.display = 'block';
+        return; // Stop further execution if required fields are not filled
+    } else {
+        const modalFieldMessage = drinkModal.querySelector('.modalFieldMessage');
+        modalFieldMessage.style.display = 'none';
+    }
 
         // get values from drinkForm
         const drinkItem = {
@@ -324,6 +357,22 @@ document.addEventListener("DOMContentLoaded", () => {
     //function to handle update of items from form
     document.getElementById("updateForm").addEventListener("submit", async function (event) {
         event.preventDefault();
+
+          // Check if all required fields have been filled
+    const name = document.getElementById("name").value;
+    const description = document.getElementById("description").value;
+    const price = document.getElementById("price").value;
+    
+    if (!name || !description || !price) {
+        const modalFieldMessage = document.querySelector('.modalFieldMessage');
+        modalFieldMessage.textContent = 'Alla fält måste fyllas i';
+        modalFieldMessage.style.display = 'block';
+        updateModal.style.display = "block";
+        return; // Stop further execution if required fields are not filled
+    } else {
+        const modalFieldMessage = document.querySelector('.modalFieldMessage');
+        modalFieldMessage.style.display = 'none';
+    }
 
         const updatedItem = {
             food: currentItem.food ? document.getElementById("name").value.toUpperCase() : undefined,
@@ -366,8 +415,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
+    //function to delete items from table
     function deleteItem(id, category, type) {
-
         const apiUrl = type === 'food' ? foodUrl : drinkUrl;
 
         fetch(`${apiUrl}/${id}`, {

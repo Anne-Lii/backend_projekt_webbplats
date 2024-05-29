@@ -180,6 +180,11 @@ th, td {
   text-decoration: none;
 }
 
+.modalFieldMessage {
+  color: #c25523;
+  font-size: 14px;
+}
+
 #submitBtn {
   color: #fff;
   background-color: #487a78;

@@ -194,6 +194,11 @@ margin-top: 20px;
     cursor: pointer;
 }
 
+.modalFieldMessage {
+    color: rgb(194, 85, 35);
+    font-size: 14px;    
+}
+
 #submitBtn {
     background-color: rgb(72, 122, 120);
     color: #fff;
