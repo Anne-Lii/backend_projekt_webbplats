@@ -587,7 +587,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 //code written by Anne-Lii Hansen VT 2024
 "use strict";
 const foodUrl = "https://backend-projekt-api-2zmb.onrender.com/api/foods";
-const drinkUrl = "https://backend-projekt-api-2zmb.onrender.com/api/drink";
+const drinkUrl = "https://backend-projekt-api-2zmb.onrender.com/api/drinks";
 let currentItem = null; //stores the current item beeing edited global
 let isAddingNew = false; //flag for knowing if modal adds new or updates
 document.addEventListener("DOMContentLoaded", ()=>{
@@ -679,6 +679,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     async function fetchItems(url, type) {
         try {
             const response = await fetch(url);
+            console.log(`Response status for ${url}:`, response.status);
             if (!response.ok) throw new Error(`Failed to fetch ${type} items`);
             return response.json();
         } catch (error) {

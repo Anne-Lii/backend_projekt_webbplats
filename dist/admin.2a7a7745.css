@@ -218,13 +218,37 @@ th, td {
   font-size: 14px;
 }
 
-#submitBtn {
+#submitBtn, #addFoodSubmitBtn, #addDrinkSubmitBtn {
   color: #fff;
   background-color: #487a78;
   border-radius: 5px;
   width: 60%;
   margin: 10px auto;
   padding: 8px 0;
+  font-size: 16px;
+}
+
+#addFoodModal input {
+  width: 100%;
+  height: 30px;
+  font-size: 14px;
+}
+
+#addFoodModal select {
+  width: 100%;
+  height: 30px;
+  font-size: 16px;
+}
+
+#addDrinkModal input {
+  width: 100%;
+  height: 30px;
+  font-size: 14px;
+}
+
+#addDrinkModal select {
+  width: 100%;
+  height: 30px;
   font-size: 16px;
 }
 

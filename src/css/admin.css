@@ -247,7 +247,7 @@ td {
     font-size: 14px;
 }
 
-#submitBtn {
+#submitBtn, #addFoodSubmitBtn, #addDrinkSubmitBtn {
     background-color: rgb(72, 122, 120);
     color: #fff;
     width: 60%;
@@ -257,13 +257,40 @@ td {
     margin: 10px auto;
 }
 
+#addFoodModal input{
+    font-size: 14px;
+    width: 100%;
+    height: 30px;
+}
+
+
+#addFoodModal select{
+    width: 100%;
+    font-size: 16px;
+    height: 30px;
+}
+
+#addDrinkModal input {
+    font-size: 14px;
+    width: 100%;
+    height: 30px;
+}
+
+#addDrinkModal select {
+    width: 100%;
+    font-size: 16px;
+    height: 30px;
+}
+
+
+
+
 @media screen and (max-width: 1600px)  and (min-width: 901px){
 
     main {
         float: right;
         margin-right: 10px;
     }
-    
     
     table {
         width: 100%;
@@ -276,7 +303,6 @@ td {
         text-align: center;
         font-size: 14px;
     }
-
 
     #foodSection,
     #drinkSection,
