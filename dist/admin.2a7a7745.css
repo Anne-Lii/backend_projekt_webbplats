@@ -126,6 +126,22 @@ th, td {
   content: "✖";
 }
 
+#bookingList {
+  padding: 20px;
+  list-style: none;
+}
+
+#bookingList li {
+  padding: 10px;
+}
+
+#bookingList button {
+  background-color: #e6b4b4;
+  border-radius: 5px;
+  margin: 3px;
+  padding: 5px 20px;
+}
+
 #regForm {
   width: 100%;
   max-width: 500px;

@@ -147,9 +147,24 @@ td {
     content: '\2716';
 }
 
+/* BOOKINGS */
+#bookingList {
+    list-style: none;
+    padding: 20px;    
+}
 
+#bookingList li{    
+    padding: 10px;    
+}
 
-/* Register new user*/
+#bookingList button{    
+    padding: 5px 20px; 
+    margin: 3px; 
+    background-color: rgb(230, 180, 180);
+    border-radius: 5px;
+}
+
+/* REGISTER NEW USER*/
 #regForm {
     padding: 10px 0 10px 50px;
     width: 100%;
@@ -179,7 +194,6 @@ td {
 }
 
 /* Modals */
-
 .modal {
     display: none;
     position: fixed;
@@ -192,7 +206,6 @@ td {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-/* Modal Content */
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto;
@@ -281,8 +294,6 @@ td {
     font-size: 16px;
     height: 30px;
 }
-
-
 
 
 @media screen and (max-width: 1600px)  and (min-width: 901px){

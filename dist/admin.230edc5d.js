@@ -590,6 +590,10 @@ const foodUrl = "https://backend-projekt-api-2zmb.onrender.com/api/foods";
 const drinkUrl = "https://backend-projekt-api-2zmb.onrender.com/api/drinks";
 let currentItem = null; //stores the current item beeing edited global
 let isAddingNew = false; //flag for knowing if modal adds new or updates
+const bookingSection = document.getElementById("bookingsection");
+const foodSection = document.getElementById("foodSection");
+const drinkSection = document.getElementById("drinkSection");
+const registrationSection = document.getElementById("registrationSection");
 document.addEventListener("DOMContentLoaded", ()=>{
     // Link to show and edit food
     document.getElementById("link_edit_food").addEventListener("click", function(event) {
@@ -597,12 +601,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
         fetchFoodItemsAndDraw("sm\xe5r\xe4tter");
         fetchFoodItemsAndDraw("varmr\xe4tt");
         fetchFoodItemsAndDraw("dessert");
-        //change FOOD display: none to block
-        document.getElementById("foodSection").style.display = "block";
-        //change DRINK display: block to none
-        document.getElementById("drinkSection").style.display = "none";
-        //change REGISTER display: block to none
-        document.getElementById("registrationSection").style.display = "none";
+        //change this to display block and others to none
+        foodSection.style.display = "block";
+        bookingSection.style.display = "none";
+        drinkSection.style.display = "none";
+        registrationSection.style.display = "none";
     });
     // Link to show and edit drinks
     document.getElementById("link_edit_drinks").addEventListener("click", function(event) {
@@ -614,22 +617,26 @@ document.addEventListener("DOMContentLoaded", ()=>{
         fetchDrinkItemsAndDraw("drink");
         fetchDrinkItemsAndDraw("beer");
         fetchDrinkItemsAndDraw("alcoholfree");
+        //change BOOKINGS display: block to none
+        bookingSection.style.display = "none";
         //change FOOD display: block to none
-        document.getElementById("foodSection").style.display = "none";
+        foodSection.style.display = "none";
         //change DRINK display: none to block
-        document.getElementById("drinkSection").style.display = "block";
+        drinkSection.style.display = "block";
         //change REGISTER display: block to none
-        document.getElementById("registrationSection").style.display = "none";
+        registrationSection.style.display = "none";
     });
     // Link to register new user
     document.getElementById("link_register_new").addEventListener("click", function(event) {
         event.preventDefault();
+        //change BOOKINGS display: block to none
+        bookingSection.style.display = "none";
         //change REGISTER display: none to block
-        document.getElementById("registrationSection").style.display = "block";
+        registrationSection.style.display = "block";
         //change FOOD display: block to none
-        document.getElementById("foodSection").style.display = "none";
+        foodSection.style.display = "none";
         //change DRINK display: block to none
-        document.getElementById("drinkSection").style.display = "none";
+        drinkSection.style.display = "none";
     });
     async function fetchFoodItemsAndDraw(category) {
         try {
@@ -949,6 +956,131 @@ document.addEventListener("DOMContentLoaded", ()=>{
             console.error("Error deleting item:", error);
         });
     }
+    //Bookings
+    const bookingList = document.getElementById("bookingList");
+    const bookingsUrl = "https://backend-projekt-api-2zmb.onrender.com/api/bookings";
+    // Declare a global variable to store the currently editing booking
+    let currentEditingBooking = null;
+    // Link to see bookings
+    document.getElementById("link_edit_bookings").addEventListener("click", function(event) {
+        event.preventDefault();
+        //change BOOKINGS display:block and others to none
+        bookingSection.style.display = "block";
+        registrationSection.style.display = "none";
+        foodSection.style.display = "none";
+        drinkSection.style.display = "none";
+        // Fetch and display bookings
+        fetchBookings();
+    });
+    async function fetchBookings() {
+        try {
+            const response = await fetch(bookingsUrl);
+            if (!response.ok) throw new Error("Network response was not ok");
+            const bookings = await response.json();
+            updateBookingList(bookings);
+        } catch (error) {
+            console.error("Error fetching bookings: ", error);
+        }
+    }
+    function updateBookingList(bookings) {
+        bookingList.innerHTML = ""; // Clear any existing bookings
+        bookings.forEach((booking)=>{
+            const listItem = document.createElement("li");
+            listItem.innerHTML = `
+                <strong>Bokning:</strong> ${booking.name} <br>
+                <strong>Datum:</strong> ${new Date(booking.date).toLocaleDateString()} <br>
+                <strong>Tid:</strong> ${booking.time} <br>
+                <strong>Antal personer:</strong> ${booking.guests} <br>
+                <strong>Epost:</strong> ${booking.email} <br>
+                <strong>Telefonnummer:</strong> ${booking.phone} <br>
+                <strong>Skapad:</strong> ${new Date(booking.created).toLocaleDateString()} <br>
+            `;
+            const editButton = document.createElement("button");
+            editButton.textContent = "Redigera";
+            editButton.addEventListener("click", ()=>{
+                // Inside this listener, 'booking' is accessible
+                currentEditingBooking = booking;
+                editBooking(booking);
+            });
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "Ta bort";
+            deleteButton.addEventListener("click", ()=>{
+                deleteBooking(booking._id);
+            });
+            listItem.appendChild(editButton);
+            listItem.appendChild(deleteButton);
+            bookingList.appendChild(listItem); // Write to DOM
+        });
+    }
+    async function deleteBooking(id) {
+        try {
+            const response = await fetch(`${bookingsUrl}/${id}`, {
+                method: "DELETE"
+            });
+            if (!response.ok) throw new Error("Network response was not ok");
+            fetchBookings(); // Refresh the booking list
+        } catch (error) {
+            console.error("Error deleting booking:", error);
+        }
+    }
+    function editBooking(booking) {
+        // Populate the form fields with the details of the booking being edited
+        document.getElementById("bookingname").value = booking.name;
+        document.getElementById("bookingemail").value = booking.email;
+        document.getElementById("bookingphone").value = booking.phone;
+        document.getElementById("bookingdate").value = booking.date;
+        document.getElementById("bookingtime").value = booking.time;
+        document.getElementById("bookingguests").value = booking.guests;
+        // Display the modal for editing
+        const updateBookingModal = document.getElementById("updateBookingModal");
+        updateBookingModal.style.display = "block";
+    }
+    //function to handle update of items from form
+    document.getElementById("updateBookingForm").addEventListener("submit", async function(event) {
+        event.preventDefault();
+        // Check if all required fields have been filled
+        const name = document.getElementById("bookingname").value;
+        const email = document.getElementById("bookingemail").value;
+        const phone = document.getElementById("bookingphone").value;
+        const date = document.getElementById("bookingdate").value;
+        const time = document.getElementById("bookingtime").value;
+        const guests = document.getElementById("bookingguests").value;
+        if (!name || !email || !phone || !date || !time || !guests) {
+            const modalFieldMessage = document.querySelector(".modalFieldMessage");
+            modalFieldMessage.textContent = "Alla f\xe4lt m\xe5ste fyllas i";
+            modalFieldMessage.style.display = "block";
+            updateModal.style.display = "block";
+            return; // Stop further execution if required fields are not filled
+        } else {
+            const modalFieldMessage = document.querySelector(".modalFieldMessage");
+            modalFieldMessage.style.display = "none";
+        }
+        const updatedBookingItem = {
+            name: document.getElementById("bookingname").value,
+            email: document.getElementById("bookingemail").value,
+            phone: document.getElementById("bookingphone").value,
+            date: document.getElementById("bookingdate").value,
+            time: document.getElementById("bookingtime").value,
+            guests: document.getElementById("bookingguests").value
+        };
+        try {
+            const response = await fetch(`${bookingsUrl}/${currentEditingBooking._id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(updatedBookingItem)
+            });
+            if (!response.ok) throw new Error("Failed to update booking");
+            const result = await response.json();
+            console.log(result);
+            // Refresh the list of items or update the table directly
+            fetchBookings();
+            updateModal.style.display = "none";
+        } catch (error) {
+            console.error("Error updating or adding item:", error);
+        }
+    });
 /*
     //function to register a new admin
     document.getElementById('registrationSection').addEventListener('click', function (event) {
