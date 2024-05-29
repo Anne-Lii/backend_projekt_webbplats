@@ -587,7 +587,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 //code written by Anne-Lii Hansen VT 2024
 "use strict";
 document.addEventListener("DOMContentLoaded", ()=>{
-    let menuVisible = true; // Initialize menu as visible
+    /* Burgermenu for smaller screens than 1000px */ let menuVisible = true; // Initialize menu as visible
     function handleResize() {
         const navMenu = document.getElementById("nav-menu");
         if (window.innerWidth >= 1000) {
@@ -621,6 +621,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
         }
     });
     handleResize(); // Call handleResize initially to set menu display on page load
+    /* Smooth scrolling to selected section */ function smoothScroll(target) {
+        const element = document.getElementById(target);
+        element.scrollIntoView({
+            behavior: "smooth"
+        });
+    }
 });
 
 },{}]},["j2YDk","1SICI"], "1SICI", "parcelRequire4e03")

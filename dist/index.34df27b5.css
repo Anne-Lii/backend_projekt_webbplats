@@ -4,6 +4,7 @@
 }
 
 body, html {
+  scroll-behavior: smooth;
   width: 100%;
   height: 100%;
 }
@@ -101,6 +102,7 @@ nav ul li a {
   background-color: #3f3e3c;
   width: 100%;
   height: 600px;
+  padding: 100px 0 50px;
 }
 
 #presentation {
@@ -129,6 +131,62 @@ nav ul li a {
 
 #link_editMenu, #link_admin {
   display: none;
+}
+
+#div_booking {
+  background-color: #f7f5ed;
+  width: 100%;
+  min-height: 150px;
+  padding-top: 200px;
+  padding-bottom: 500px;
+  font-family: Cormorant Garamond, serif;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+#bookingForm {
+  color: #d8d2b2;
+  background-color: #665d4b;
+  border-radius: 10px;
+  width: 50%;
+  max-width: 500px;
+  margin: auto;
+  padding: 30px;
+}
+
+#div_booking input {
+  width: 98%;
+  height: 24px;
+}
+
+#bookingBtn {
+  color: #000;
+  background-color: #d8d2b2;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 20px;
+}
+
+#bookingBtn:hover {
+  box-shadow: 5px 5px 10px #000;
+}
+
+#div_find {
+  text-align: center;
+  background-color: #f7f5ed;
+  width: 100%;
+  min-height: 150px;
+  padding-bottom: 430px;
+  font-family: Cormorant Garamond, serif;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 600;
+}
+
+#div_find h3 {
+  font-size: 42px;
 }
 
 @media screen and (width <= 1000px) {

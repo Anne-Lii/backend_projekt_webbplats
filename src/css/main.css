@@ -7,7 +7,7 @@ body,
 html {
     height: 100%;
     width: 100%;
-   
+    scroll-behavior: smooth;
 }
 
 #bgVideo {
@@ -105,6 +105,8 @@ nav ul li a {
     width: 100%;
     height: 600px;
     background-color: rgb(63, 62, 60);
+    padding: 100px 0 50px 0;
+    
 }
 
 #presentation {
@@ -134,6 +136,65 @@ nav ul li a {
 #link_editMenu, #link_admin {
     display: none;
 }
+
+#div_booking {
+    width: 100%;
+    min-height: 150px;
+    background-color: #f7f5ed;
+   
+    padding-top: 200px;
+    padding-bottom: 500px;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
+    font-style: italic; 
+    font-size: 24px;  
+}
+
+#bookingForm {
+    width: 50%;
+    max-width: 500px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: rgb(102, 93, 75);
+    color: #d8d2b2;
+}
+#div_booking input {
+    height: 24px;
+    width: 98%;
+}
+
+#bookingBtn {
+    padding: 10px 0;
+    width: 100%;
+    
+    color:black;
+    border-radius: 5px;
+    font-size: 20px;  
+    background-color:  #d8d2b2;  
+}
+
+#bookingBtn:hover {
+    box-shadow: 5px 5px 10px black; 
+}
+
+#div_find {
+    width: 100%;
+    min-height: 150px;
+    background-color: #f7f5ed;
+    text-align: center;
+    padding-bottom: 430px;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
+    font-style: italic; 
+    font-size: 24px;   
+}
+#div_find h3 {
+    font-size: 42px;
+}
+
+
+
 
 @media screen and (max-width: 1000px) {
 

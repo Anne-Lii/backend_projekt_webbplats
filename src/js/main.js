@@ -2,6 +2,8 @@
 "use strict"
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    /* Burgermenu for smaller screens than 1000px */
     let menuVisible = true; // Initialize menu as visible
 
     function handleResize() {
@@ -46,4 +48,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     handleResize(); // Call handleResize initially to set menu display on page load
+
+    /* Smooth scrolling to selected section */
+    function smoothScroll(target) {
+        const element = document.getElementById(target);
+        element.scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+    
 });
