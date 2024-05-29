@@ -146,7 +146,7 @@ nav ul li a {
         width: 250px;
         padding: 0;
         background-color: black;
-        opacity: 70%;
+        opacity: 95%;
         display: none;
     }
   
@@ -178,6 +178,9 @@ nav ul li a {
         cursor: pointer;
         background-color: transparent;
         border: none;
+        position: fixed;
+        top: 20;
+        right: 10;
     }
 
     .open {
@@ -211,7 +214,7 @@ nav ul li a {
         width: 25px;
         transform: rotate(45deg);
         position: relative;
-        top: 5px;
+        top: -8px;
         border-radius: 5px;
         
     }
@@ -220,8 +223,15 @@ nav ul li a {
         width: 25px;
         transform: rotate(135deg);
         position: relative;
-        top: -7px;
+        top: -20px;
         border-radius: 5px;
+    }
+
+    .nav-scroll {
+        width: 250px;
+        position: fixed;
+        top: 0;
+        right: 0;
     }
 
     #div_etoile {
@@ -230,28 +240,28 @@ nav ul li a {
         background-color: rgb(63, 62, 60);
     }
     
-#presentation {
-    display: block;
-    text-align: center;
-    width: 100%;
-    max-width: 1000px;
-    margin: auto;
-    height: auto;
-}
+    #presentation {
+        display: block;
+        text-align: center;
+        width: 100%;
+        max-width: 1000px;
+        margin: auto;
+        height: auto;
+    }
 
-#presentation img {
-    max-height: 500px;
-    width: auto;
-    margin: 30px auto;
-}
+    #presentation img {
+        max-height: 500px;
+        width: auto;
+        margin: 30px auto;
+    }
 
-#presentation p {
-    display: block;
-    width: 90%;
-    margin: auto;
-    max-height: 1000px;
-    padding: 0 0 100px 0;
-}
+    #presentation p {
+        display: block;
+        width: 90%;
+        margin: auto;
+        max-height: 1000px;
+        padding: 0 0 100px 0;
+    }
 
 
 
