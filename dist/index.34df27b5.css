@@ -317,4 +317,11 @@ nav ul li a {
     display: block;
   }
 }
+
+@media screen and (width <= 650px) {
+  #bookingForm {
+    width: 80%;
+    max-width: 650px;
+  }
+}
 /*# sourceMappingURL=index.34df27b5.css.map */

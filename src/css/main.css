@@ -159,6 +159,7 @@ nav ul li a {
     background-color: rgb(102, 93, 75);
     color: #d8d2b2;
 }
+
 #div_booking input {
     height: 24px;
     width: 98%;
@@ -330,5 +331,14 @@ nav ul li a {
     }
 
 
+}
+
+@media screen and (max-width: 650px) {
+
+    #bookingForm {
+        width: 80%;
+        max-width: 650px;
+       
+    }
 
 }
