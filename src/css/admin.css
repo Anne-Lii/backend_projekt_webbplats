@@ -4,6 +4,7 @@
 }
 
 body {
+    width: 100%;
     background-color: rgb(72, 122, 120);
     font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, serif;
 }
@@ -82,29 +83,28 @@ main h1 {
 }
 
 #foodSection,
-#drinkSection,
-#registrationSection {
+#drinkSection {
     padding-bottom: 50px;
     margin: auto;
     width: 100%;
 }
 
 #foodSection,
-#drinkSection,
-#registrationSection,
+#drinkSection {
+    margin: 30px 0 10px 0;
+}
+
 h2,
 h3 {
     margin: 30px 0 10px 20px;
 }
-
-
 
 /* Table */
 table {
     width: 90%;
     border-collapse: collapse;
     margin: auto;
-
+    overflow-x: auto; /* horizontal scrolling */
 }
 
 table,
@@ -128,7 +128,7 @@ td {
     padding: 8px 0;
     font-size: 16px;
     border-radius: 5px;
-    margin: 10px auto 0 auto;
+    margin: 10px auto 0 20px;
 }
 
 .btn {
@@ -287,6 +287,9 @@ td {
     table {
         width: 100%;
         border-collapse: collapse;
+        overflow-x: auto; /* horizontal scrolling */
+        padding: 0;
+        margin: 0;
     }
 
     th,
@@ -294,12 +297,17 @@ td {
         padding: 10px 0px;
         text-align: center;
         font-size: 14px;
+        margin: 0;
     }
 
     #foodSection,
     #drinkSection,
     #registrationSection {
         margin: 30px 0 10px 0;
+        padding: 0;
+        width: 95%;
+        max-width: 900px;
+        margin: auto;
     }
 
     #addDrinkButton,
@@ -307,37 +315,6 @@ td {
         width: 100%;
         max-width: 400px;
         margin-left: 20px;       
-    }
-
-    /* Register new user*/
-    #regForm {
-        padding: 10px 0 10px 50px;
-        margin: auto;
-    }
-
-    #registerTitle {
-        width: 100%;
-        text-align: center;
-        padding-bottom: 50px;  
-        margin: 30px 0 0 0; 
-    }
-
-    #regForm input {
-        height: 24px;
-        width: 90%;
-        font-size: 16px;
-        padding-left: 1px;
-        margin: 5px auto;
-    }
-
-    #regForm button {
-        background-color: rgb(72, 122, 120);
-        color: #fff;
-        width: 91%;
-        padding: 8px 0;
-        font-size: 16px;
-        border-radius: 5px;
-        margin: 10px auto 0 auto;
     }
 
 }
@@ -394,6 +371,9 @@ td {
     #drinkSection,
     #registrationSection {
         margin: 30px 0 10px 0;
+        width: 98%;
+        max-width: 900px;
+        margin: auto;
     }
 
     h2 {
@@ -410,6 +390,7 @@ td {
     table {
         width: 100%;
         border-collapse: collapse;
+        overflow-x: auto; /* horizontal scrolling */
     }
 
     th,
