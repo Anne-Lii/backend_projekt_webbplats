@@ -65,6 +65,7 @@ main {
   grid-template-columns: 1fr;
   width: 60%;
   max-width: 1200px;
+  min-height: 70vh;
   margin: -250px auto 100px;
   display: grid;
 }

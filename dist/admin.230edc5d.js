@@ -1027,11 +1027,14 @@ document.addEventListener("DOMContentLoaded", ()=>{
         }
     }
     function editBooking(booking) {
+        //Change date format to YYY-MM-DD
+        const bookingDate = new Date(booking.date);
+        const formattedDate = bookingDate.toISOString().split("T")[0];
         // Populate the form fields with the details of the booking being edited
         document.getElementById("bookingname").value = booking.name;
         document.getElementById("bookingemail").value = booking.email;
         document.getElementById("bookingphone").value = booking.phone;
-        document.getElementById("bookingdate").value = booking.date;
+        document.getElementById("bookingdate").value = formattedDate;
         document.getElementById("bookingtime").value = booking.time;
         document.getElementById("bookingguests").value = booking.guests;
         // Display the modal for editing
@@ -1040,6 +1043,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     //Handle update of items from form
     document.getElementById("updateBookingForm").addEventListener("submit", async function(event) {
         event.preventDefault();
+        console.log(" klickat p\xe5 uppdatera");
         // Check if all required fields have been filled
         const name = document.getElementById("bookingname").value;
         const email = document.getElementById("bookingemail").value;

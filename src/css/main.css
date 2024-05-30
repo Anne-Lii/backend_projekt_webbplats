@@ -193,7 +193,12 @@ nav ul li a {
     font-size: 42px;
 }
 
-
+#messageBooking {
+    font-size: 36px;
+    color: rgb(77, 204, 162);
+    margin: 0 0 10px 0;
+    text-align: center;
+}
 
 
 @media screen and (max-width: 1000px) {

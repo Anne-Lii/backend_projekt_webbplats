@@ -1,18 +1,17 @@
 "use strict"
 
 const bookingsUrl = "https://backend-projekt-api-2zmb.onrender.com/api/bookings";
+const modalFieldMessage = document.querySelector('.modalFieldMessage');
 
 document.addEventListener('DOMContentLoaded', function () {
 
     // Add new booking   
     const bookingForm = document.getElementById('bookingForm');
+    const messageBooking = document.getElementById('messageBooking');
 
-    if(bookingForm) {
+    if (bookingForm) {
         bookingForm.addEventListener('submit', async function (event) {
             event.preventDefault();
-
-            console.log("klickat på booooka");
-
             // Check if all required fields have been filled
             const name = document.getElementById("name").value;
             const email = document.getElementById("email").value;
@@ -21,20 +20,12 @@ document.addEventListener('DOMContentLoaded', function () {
             const time = document.getElementById("time").value;
             const guests = document.getElementById("guests").value;
 
-            // Ensure modalFieldMessage is correctly defined before using it
-            const modalFieldMessage = document.querySelector('.modalFieldMessage');
-
             if (!name || !email || !phone || !date || !time || !guests) {
-                if (modalFieldMessage) {
-                    modalFieldMessage.textContent = 'Alla fält måste fyllas i';
-                    modalFieldMessage.style.display = 'block';
-                }
-                bookingForm.style.display = 'block';
-                return; // Stop further execution if required fields are not filled
+                messageBooking.textContent = 'Alla fält måste fyllas i';
+                messageBooking.style.display = 'block';
+                return; // Stoppa vidare utförande om nödvändiga fält inte är ifyllda
             } else {
-                if (modalFieldMessage) {
-                    modalFieldMessage.style.display = 'none';
-                }
+                messageBooking.style.display = 'none';
             }
 
             // Get values from bookingForm
@@ -47,19 +38,33 @@ document.addEventListener('DOMContentLoaded', function () {
                     body: JSON.stringify(newBooking)
                 });
 
-               
-                console.log('Response:', response); // Log the entire response for debugging
                 // Ensure the response is OK (status 200-299)
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-                const responseData = await response.json();
+                await response.json();
 
-                // Log the response data for debugging
-                console.log('Response Data:', responseData);
+                // Reset the form after successful submission
+                bookingForm.reset();
+
+                // Show success message
+                if ( messageBooking) {
+                
+                    messageBooking.textContent = 'Din bokning har registrerats';
+                    messageBooking.style.display = 'block';
+                } 
             } catch (error) {
                 console.error('Error adding new booking:', error);
             }
         });
     }
+
+     // Add event listeners to input fields to reset message when clicked
+     const inputFields = document.querySelectorAll('input');
+     inputFields.forEach(input => {
+         input.addEventListener('click', function () {
+             messageBooking.textContent = ''; // Reset message
+             messageBooking.style.display = 'none'; // Hide message
+         });
+     });
 });

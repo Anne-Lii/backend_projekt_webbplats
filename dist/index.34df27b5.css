@@ -189,6 +189,13 @@ nav ul li a {
   font-size: 42px;
 }
 
+#messageBooking {
+  color: #4dcca2;
+  text-align: center;
+  margin: 0 0 10px;
+  font-size: 36px;
+}
+
 @media screen and (width <= 1000px) {
   nav {
     opacity: .95;

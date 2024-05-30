@@ -142,14 +142,14 @@
       this[globalName] = mainExports;
     }
   }
-})({"1TdvU":[function(require,module,exports) {
+})({"j2YDk":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
 var HMR_USE_SSE = false;
-module.bundle.HMR_BUNDLE_ID = "ddb912ecc7a57c85";
+module.bundle.HMR_BUNDLE_ID = "0bcb44a518dbc454";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, HMR_USE_SSE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -583,69 +583,52 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"3AlF7":[function(require,module,exports) {
+},{}],"1SICI":[function(require,module,exports) {
+//code written by Anne-Lii Hansen VT 2024
 "use strict";
-const bookingsUrl = "https://backend-projekt-api-2zmb.onrender.com/api/bookings";
-const modalFieldMessage = document.querySelector(".modalFieldMessage");
-document.addEventListener("DOMContentLoaded", function() {
-    // Add new booking   
-    const bookingForm = document.getElementById("bookingForm");
-    const messageBooking = document.getElementById("messageBooking");
-    if (bookingForm) bookingForm.addEventListener("submit", async function(event) {
-        event.preventDefault();
-        // Check if all required fields have been filled
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const phone = document.getElementById("phone").value;
-        const date = document.getElementById("date").value;
-        const time = document.getElementById("time").value;
-        const guests = document.getElementById("guests").value;
-        if (!name || !email || !phone || !date || !time || !guests) {
-            messageBooking.textContent = "Alla f\xe4lt m\xe5ste fyllas i";
-            messageBooking.style.display = "block";
-            return; // Stoppa vidare utförande om nödvändiga fält inte är ifyllda
-        } else messageBooking.style.display = "none";
-        // Get values from bookingForm
-        const newBooking = {
-            name,
-            email,
-            phone,
-            date,
-            time,
-            guests
-        };
-        try {
-            const response = await fetch(bookingsUrl, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(newBooking)
-            });
-            // Ensure the response is OK (status 200-299)
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-            await response.json();
-            // Reset the form after successful submission
-            bookingForm.reset();
-            // Show success message
-            if (messageBooking) {
-                messageBooking.textContent = "Din bokning har registrerats";
-                messageBooking.style.display = "block";
-            }
-        } catch (error) {
-            console.error("Error adding new booking:", error);
+document.addEventListener("DOMContentLoaded", ()=>{
+    /* Smooth scrolling to selected section */ function smoothScroll(target) {
+        const element = document.getElementById(target);
+        element.scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+    /* Burgermenu for smaller screens than 1000px */ let menuVisible = true; // Initialize menu as visible
+    function handleResize() {
+        const navMenu = document.getElementById("nav-menu");
+        if (window.innerWidth >= 1000) {
+            navMenu.style.display = "block";
+            menuVisible = true;
+        }
+    }
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("scroll", function() {
+        let nav = document.querySelector("nav");
+        if (this.window.scrollY > 0) nav.classList.add("nav-scroll");
+        else nav.classList.remove("nav-scrolled");
+    });
+    document.getElementById("open-menu").addEventListener("click", ()=>{
+        const navMenu = document.getElementById("nav-menu");
+        if (!menuVisible) {
+            navMenu.style.display = "block";
+            menuVisible = true;
+        } else {
+            navMenu.style.display = "none";
+            menuVisible = false;
         }
     });
-    // Add event listeners to input fields to reset message when clicked
-    const inputFields = document.querySelectorAll("input");
-    inputFields.forEach((input)=>{
-        input.addEventListener("click", function() {
-            messageBooking.textContent = ""; // Reset message
-            messageBooking.style.display = "none"; // Hide message
-        });
+    document.getElementById("close-menu").addEventListener("click", ()=>{
+        const navMenu = document.getElementById("nav-menu");
+        if (window.innerWidth < 1000) {
+            if (menuVisible) {
+                navMenu.style.display = "none";
+                menuVisible = false;
+            }
+        }
     });
+    handleResize(); // Call handleResize initially to set menu display on page load
 });
 
-},{}]},["1TdvU","3AlF7"], "3AlF7", "parcelRequire4e03")
+},{}]},["j2YDk","1SICI"], "1SICI", "parcelRequire4e03")
 
-//# sourceMappingURL=index.c7a57c85.js.map
+//# sourceMappingURL=index.18dbc454.js.map
