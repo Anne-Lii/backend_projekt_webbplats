@@ -142,14 +142,14 @@
       this[globalName] = mainExports;
     }
   }
-})({"20OM1":[function(require,module,exports) {
+})({"1TdvU":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
 var HMR_USE_SSE = false;
-module.bundle.HMR_BUNDLE_ID = "720b1cd6c02a50fd";
+module.bundle.HMR_BUNDLE_ID = "ddb912ecc7a57c85";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, HMR_USE_SSE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -583,61 +583,61 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"8Ge0Y":[function(require,module,exports) {
-//code written by Anne-Lii Hansen VT 2024
+},{}],"3AlF7":[function(require,module,exports) {
 "use strict";
-document.addEventListener("DOMContentLoaded", ()=>{
-    console.log("DOMContentLoaded event fired");
-    const url = "https://backend-projekt-api-2zmb.onrender.com/api/drinks";
-    fetch(url).then((response)=>response.json()).then((data)=>{
-        displayDrinks(data);
-    }).catch((error)=>console.error("Ett fel uppstod n\xe4r dryck skulle h\xe4mtas", error));
-    function displayDrinks(drinkItems) {
-        const whiteDiv = document.getElementById("white");
-        const redDiv = document.getElementById("red");
-        const roseDiv = document.getElementById("rose");
-        const champagneDiv = document.getElementById("champagne");
-        const drinksDiv = document.getElementById("drinks");
-        const beerDiv = document.getElementById("beer");
-        const alcoholfreeDiv = document.getElementById("alcoholfree");
-        drinkItems.forEach((item)=>{
-            const menuItem = document.createElement("div");
-            menuItem.classList.add("menu-item");
-            menuItem.innerHTML = `
-            <h4>${item.drinkname}</h4>
-            <p>${item.description}</p>
-            <p>Pris: ${item.price} kr</p>
-        `;
-            switch(item.category){
-                case "white":
-                    whiteDiv.appendChild(menuItem);
-                    break;
-                case "red":
-                    redDiv.appendChild(menuItem);
-                    break;
-                case "rose":
-                    roseDiv.appendChild(menuItem);
-                    break;
-                case "champagne":
-                    champagneDiv.appendChild(menuItem);
-                    break;
-                case "drink":
-                    drinksDiv.appendChild(menuItem);
-                    break;
-                case "beer":
-                    beerDiv.appendChild(menuItem);
-                    break;
-                case "alcoholfree":
-                    alcoholfreeDiv.appendChild(menuItem);
-                    break;
-                default:
-                    console.error("Ogiltig kategori:", item.category);
-                    break;
+const bookingsUrl = "https://backend-projekt-api-2zmb.onrender.com/api/bookings";
+document.addEventListener("DOMContentLoaded", function() {
+    // Add new booking   
+    const bookingForm = document.getElementById("bookingForm");
+    if (bookingForm) bookingForm.addEventListener("submit", async function(event) {
+        event.preventDefault();
+        console.log("klickat p\xe5 booooka");
+        // Check if all required fields have been filled
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const date = document.getElementById("date").value;
+        const time = document.getElementById("time").value;
+        const guests = document.getElementById("guests").value;
+        // Ensure modalFieldMessage is correctly defined before using it
+        const modalFieldMessage = document.querySelector(".modalFieldMessage");
+        if (!name || !email || !phone || !date || !time || !guests) {
+            if (modalFieldMessage) {
+                modalFieldMessage.textContent = "Alla f\xe4lt m\xe5ste fyllas i";
+                modalFieldMessage.style.display = "block";
             }
-        });
-    }
+            bookingForm.style.display = "block";
+            return; // Stop further execution if required fields are not filled
+        } else if (modalFieldMessage) modalFieldMessage.style.display = "none";
+        // Get values from bookingForm
+        const newBooking = {
+            name,
+            email,
+            phone,
+            date,
+            time,
+            guests
+        };
+        try {
+            const response = await fetch(bookingsUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(newBooking)
+            });
+            console.log("Response:", response); // Log the entire response for debugging
+            // Ensure the response is OK (status 200-299)
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            const responseData = await response.json();
+            // Log the response data for debugging
+            console.log("Response Data:", responseData);
+        } catch (error) {
+            console.error("Error adding new booking:", error);
+        }
+    });
 });
 
-},{}]},["20OM1","8Ge0Y"], "8Ge0Y", "parcelRequire4e03")
+},{}]},["1TdvU","3AlF7"], "3AlF7", "parcelRequire4e03")
 
-//# sourceMappingURL=index.c02a50fd.js.map
+//# sourceMappingURL=index.c7a57c85.js.map

@@ -3,15 +3,25 @@
 
 const foodUrl = "https://backend-projekt-api-2zmb.onrender.com/api/foods";
 const drinkUrl = "https://backend-projekt-api-2zmb.onrender.com/api/drinks";
+const bookingsUrl = "https://backend-projekt-api-2zmb.onrender.com/api/bookings";
 
 let currentItem = null;//stores the current item beeing edited global
-let isAddingNew = false; //flag for knowing if modal adds new or updates
+let isAddingNew = false; //flag for knowing if modal adds new or updates 
+let currentEditingBooking = null;// Declare a global variable to store the currently editing booking
 
 const bookingSection = document.getElementById('bookingsection');
 const foodSection = document.getElementById('foodSection');
 const drinkSection = document.getElementById('drinkSection');
 const registrationSection = document.getElementById('registrationSection');
 
+ // Get the modals
+ const updateModal = document.getElementById("updateModal");//update food and drinks
+ const updateBookingModal = document.getElementById("updateBookingModal"); //update bookings modal
+ const foodModal = document.getElementById("addFoodModal"); //add food modal
+ const drinkModal = document.getElementById("addDrinkModal");//add drinks modal
+
+ const bookingForm = document.getElementById("bookingForm");//Booking Form to fill in
+ 
 document.addEventListener("DOMContentLoaded", () => {
 
     // Link to show and edit food
@@ -175,10 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
         table.style.display = 'table';
     }
 
-    // Get the modal
-    const updateModal = document.getElementById("updateModal");
-    const foodModal = document.getElementById("addFoodModal");
-    const drinkModal = document.getElementById("addDrinkModal");
+   
 
     // Get the <span> element that closes the modal
     const closeButtons = document.getElementsByClassName("close");
@@ -189,6 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
             updateModal.style.display = "none";
             foodModal.style.display = "none";
             drinkModal.style.display = "none";
+            updateBookingModal.style.display = "none";
         }
     }
 
@@ -199,6 +207,8 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (event.target == foodModal) {
             foodModal.style.display = "none";
         } else if (event.target == drinkModal) {
+            drinkModal.style.display = "none";
+        }else if (event.target == updateBookingModal) {
             drinkModal.style.display = "none";
         }
     }
@@ -351,7 +361,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         // Skicka POST-anrop till dryck-API för att lägga till ny dryckspost
-        // Använd rätt API-URL för att lägga till drycksposten
+     
         try {
             const response = await fetch(drinkUrl, {
                 method: 'POST',
@@ -463,20 +473,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.error('Error deleting item:', error);
             });
     }
-
-    //Bookings
+    //BOOKINGS
     const bookingList = document.getElementById('bookingList');
-    const bookingsUrl = "https://backend-projekt-api-2zmb.onrender.com/api/bookings";
-
-    // Declare a global variable to store the currently editing booking
-    let currentEditingBooking = null;
-
 
     // Link to see bookings
     document.getElementById('link_edit_bookings').addEventListener('click', function (event) {
         event.preventDefault();
 
-        //change BOOKINGS display:block and others to none
+        //change section displays
         bookingSection.style.display = 'block';
         registrationSection.style.display = 'none';
         foodSection.style.display = 'none';
@@ -530,13 +534,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 deleteBooking(booking._id);
             });
 
+            // Add to DOM
             listItem.appendChild(editButton);
             listItem.appendChild(deleteButton);
-
-            bookingList.appendChild(listItem); // Write to DOM
+            bookingList.appendChild(listItem); 
         });
     }
-
 
     async function deleteBooking(id) {
         try {
@@ -562,11 +565,11 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("bookingguests").value = booking.guests;
 
         // Display the modal for editing
-        const updateBookingModal = document.getElementById("updateBookingModal");
+        
         updateBookingModal.style.display = "block";
     }
 
-    //function to handle update of items from form
+    //Handle update of items from form
     document.getElementById("updateBookingForm").addEventListener("submit", async function (event) {
         event.preventDefault();
 
@@ -582,51 +585,41 @@ document.addEventListener("DOMContentLoaded", () => {
             const modalFieldMessage = document.querySelector('.modalFieldMessage');
             modalFieldMessage.textContent = 'Alla fält måste fyllas i';
             modalFieldMessage.style.display = 'block';
-            updateModal.style.display = "block";
+            updateBookingModal.style.display = "block";
             return; // Stop further execution if required fields are not filled
         } else {
-            const modalFieldMessage = document.querySelector('.modalFieldMessage');
-            modalFieldMessage.style.display = 'none';
+            document.querySelector('.modalFieldMessage').style.display = 'none';
         }
 
-        const updatedBookingItem = {
-            name: document.getElementById("bookingname").value,
-            email: document.getElementById("bookingemail").value,
-            phone: document.getElementById("bookingphone").value,
-            date: document.getElementById("bookingdate").value,
-            time: document.getElementById("bookingtime").value,
-            guests: document.getElementById("bookingguests").value
-        };
-
-
+        const updatedBookingItem = { name, email, phone, date, time, guests };
+        console.log(updatedBookingItem);
 
         try {
             const response = await fetch(`${bookingsUrl}/${currentEditingBooking._id}`, {
                 method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+                headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(updatedBookingItem)
             });
 
             if (!response.ok) {
                 throw new Error('Failed to update booking');
             }
-
-            const result = await response.json();
-            console.log(result);
-
-            // Refresh the list of items or update the table directly
-            fetchBookings();
-
-            updateModal.style.display = "none";
-
+            await response.json();
+           
+            fetchBookings();// Refresh the list of items or update the table directly
+            updateBookingModal.style.display = "none";
         } catch (error) {
             console.error('Error updating or adding item:', error);
         }
-
     });
 
+   
+
+    window.addEventListener("click", (event) => {
+        if (event.target === updateBookingModal) {
+            updateBookingModal.style.display = "none";
+        }
+    });
 
 
 

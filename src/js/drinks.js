@@ -4,7 +4,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     console.log("DOMContentLoaded event fired");
 
-    const url = "https://backend-projekt-api-2zmb.onrender.com/api/drink";
+    const url = "https://backend-projekt-api-2zmb.onrender.com/api/drinks";
 
     fetch(url)
         .then(response => response.json())

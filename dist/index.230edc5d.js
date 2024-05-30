@@ -826,14 +826,14 @@ document.addEventListener("DOMContentLoaded", ()=>{
         const description = document.getElementById("fooddescription").value;
         const price = document.getElementById("foodprice").value;
         if (!name || !description || !price) {
-            const modalFieldMessage = foodModal.querySelector(".modalFieldMessage");
-            modalFieldMessage.textContent = "Alla f\xe4lt m\xe5ste fyllas i";
-            modalFieldMessage.style.display = "block";
+            const modalFieldMessage1 = foodModal.querySelector(".modalFieldMessage");
+            modalFieldMessage1.textContent = "Alla f\xe4lt m\xe5ste fyllas i";
+            modalFieldMessage1.style.display = "block";
             foodModal.style.display = "block";
             return; // Stop further execution if required fields are not filled
         } else {
-            const modalFieldMessage = foodModal.querySelector(".modalFieldMessage");
-            modalFieldMessage.style.display = "none";
+            const modalFieldMessage1 = foodModal.querySelector(".modalFieldMessage");
+            modalFieldMessage1.style.display = "none";
         }
         // get values from foodForm
         const foodItem = {
@@ -866,14 +866,14 @@ document.addEventListener("DOMContentLoaded", ()=>{
         const description = document.getElementById("drinkdescription").value;
         const price = document.getElementById("drinkprice").value;
         if (!name || !description || !price) {
-            const modalFieldMessage = drinkModal.querySelector(".modalFieldMessage");
-            modalFieldMessage.textContent = "Alla f\xe4lt m\xe5ste fyllas i";
-            modalFieldMessage.style.display = "block";
+            const modalFieldMessage1 = drinkModal.querySelector(".modalFieldMessage");
+            modalFieldMessage1.textContent = "Alla f\xe4lt m\xe5ste fyllas i";
+            modalFieldMessage1.style.display = "block";
             drinkModal.style.display = "block";
             return; // Stop further execution if required fields are not filled
         } else {
-            const modalFieldMessage = drinkModal.querySelector(".modalFieldMessage");
-            modalFieldMessage.style.display = "none";
+            const modalFieldMessage1 = drinkModal.querySelector(".modalFieldMessage");
+            modalFieldMessage1.style.display = "none";
         }
         // get values from drinkForm
         const drinkItem = {
@@ -908,14 +908,14 @@ document.addEventListener("DOMContentLoaded", ()=>{
         const description = document.getElementById("description").value;
         const price = document.getElementById("price").value;
         if (!name || !description || !price) {
-            const modalFieldMessage = document.querySelector(".modalFieldMessage");
-            modalFieldMessage.textContent = "Alla f\xe4lt m\xe5ste fyllas i";
-            modalFieldMessage.style.display = "block";
+            const modalFieldMessage1 = document.querySelector(".modalFieldMessage");
+            modalFieldMessage1.textContent = "Alla f\xe4lt m\xe5ste fyllas i";
+            modalFieldMessage1.style.display = "block";
             updateModal.style.display = "block";
             return; // Stop further execution if required fields are not filled
         } else {
-            const modalFieldMessage = document.querySelector(".modalFieldMessage");
-            modalFieldMessage.style.display = "none";
+            const modalFieldMessage1 = document.querySelector(".modalFieldMessage");
+            modalFieldMessage1.style.display = "none";
         }
         const updatedItem = {
             food: currentItem.food ? document.getElementById("name").value.toUpperCase() : undefined,
@@ -1048,9 +1048,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
         const time = document.getElementById("bookingtime").value;
         const guests = document.getElementById("bookingguests").value;
         if (!name || !email || !phone || !date || !time || !guests) {
-            const modalFieldMessage = document.querySelector(".modalFieldMessage");
-            modalFieldMessage.textContent = "Alla f\xe4lt m\xe5ste fyllas i";
-            modalFieldMessage.style.display = "block";
+            const modalFieldMessage1 = document.querySelector(".modalFieldMessage");
+            modalFieldMessage1.textContent = "Alla f\xe4lt m\xe5ste fyllas i";
+            modalFieldMessage1.style.display = "block";
             updateBookingModal.style.display = "block";
             return; // Stop further execution if required fields are not filled
         } else document.querySelector(".modalFieldMessage").style.display = "none";
@@ -1077,6 +1077,48 @@ document.addEventListener("DOMContentLoaded", ()=>{
             updateBookingModal.style.display = "none";
         } catch (error) {
             console.error("Error updating or adding item:", error);
+        }
+    });
+    // Add new booking   
+    document.getElementById("bookingForm").addEventListener("submit", async function(event) {
+        event.preventDefault();
+        console.log("klickat p\xe5 booooka");
+        // Check if all required fields have been filled
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const date = document.getElementById("date").value;
+        const time = document.getElementById("time").value;
+        const guests = document.getElementById("guests").value;
+        if (!name || !email || !phone || !date || !time || !guests) {
+            const modalFieldMessage1 = document.querySelector(".modalFieldMessage");
+            modalFieldMessage1.textContent = "Alla f\xe4lt m\xe5ste fyllas i";
+            modalFieldMessage1.style.display = "block";
+            bookingForm.style.display = "block";
+            return; // Stop further execution if required fields are not filled
+        } else modalFieldMessage.style.display = "none";
+        // get values from bookingForm
+        const newBooking = {
+            name,
+            email,
+            phone,
+            date,
+            time,
+            guests
+        };
+        try {
+            const response = await fetch(bookingsUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(newBooking)
+            });
+            await response.json();
+            // Refresh the list of items or update the table directly
+            fetchBookings();
+        } catch (error) {
+            console.error("Error adding new food item:", error);
         }
     });
     window.addEventListener("click", (event)=>{
