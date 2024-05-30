@@ -506,6 +506,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function updateBookingList(bookings) {
+
+         // Sort bookings in bookingdates
+        bookings.sort((a, b) => new Date(a.date) - new Date(b.date));
+
         bookingList.innerHTML = ''; // Clear any existing bookings
         bookings.forEach(booking => {
             const listItem = document.createElement('li');
