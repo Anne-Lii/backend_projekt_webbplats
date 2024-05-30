@@ -59,19 +59,6 @@ document.addEventListener("DOMContentLoaded", () => {
         registrationSection.style.display = 'none';
     });
 
-    // Link to register new user
-    document.getElementById('link_register_new').addEventListener('click', function (event) {
-        event.preventDefault();
-
-        //change BOOKINGS display: block to none
-        bookingSection.style.display = 'none';
-        //change REGISTER display: none to block
-        registrationSection.style.display = 'block';
-        //change FOOD display: block to none
-        foodSection.style.display = 'none';
-        //change DRINK display: block to none
-        drinkSection.style.display = 'none';
-    });
 
     async function fetchFoodItemsAndDraw(category) {
 
@@ -482,7 +469,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         //change section displays
         bookingSection.style.display = 'block';
-        registrationSection.style.display = 'none';
         foodSection.style.display = 'none';
         drinkSection.style.display = 'none';
 

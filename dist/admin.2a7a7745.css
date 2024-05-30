@@ -127,7 +127,14 @@ th, td {
   content: "✖";
 }
 
+#bookingTitle {
+  text-align: center;
+}
+
 #bookingList {
+  width: 100%;
+  max-width: 300px;
+  margin: auto;
   padding: 20px;
   list-style: none;
 }
@@ -141,34 +148,6 @@ th, td {
   border-radius: 5px;
   margin: 3px;
   padding: 5px 20px;
-}
-
-#regForm {
-  width: 100%;
-  max-width: 500px;
-  padding: 10px 0 10px 50px;
-}
-
-#regForm label {
-  font-size: 20px;
-}
-
-#regForm input {
-  width: 80%;
-  height: 24px;
-  margin: auto;
-  padding-left: 1px;
-  font-size: 16px;
-}
-
-#regForm button {
-  color: #fff;
-  background-color: #487a78;
-  border-radius: 5px;
-  width: 81%;
-  margin: 10px auto 0;
-  padding: 8px 0;
-  font-size: 16px;
 }
 
 .modal {
