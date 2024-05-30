@@ -21,7 +21,6 @@
             <a href="#" id="link_edit_food">Redigera mat</a>
             <a href="#" id="link_edit_drinks">Redigera dryck</a>
             <a href="#" id="link_edit_bookings">Bokningar</a>
-            <a href="#" id="link_register_new">Registrera ny användare</a>
         </aside>
 
         <button id="logoutBtn">Logga ut</button>
@@ -29,7 +28,6 @@
 
     <main>
         <h1>Du är inloggad som administratör</h1>
-
 
         <!-- Sektion för redigering av mat -->
         <section id="foodSection" style="display: none;">
@@ -91,10 +89,6 @@
         </section>
 
 
-
-
-
-
         <!-- Sektion för redigering av drycker -->
         <section id="drinkSection" style="display: none;">
 
@@ -103,7 +97,6 @@
             <button id="addDrinkButton">Lägg till ny dryck</button>
 
             <h3 class="drinks_headline">Vitt vin</h3>
-
             <table id="whiteTable">
                 <thead>
                     <tr>
@@ -121,7 +114,6 @@
             </table>
 
             <h3 class="drinks_headline">Rött vin</h3>
-
             <table id="redTable">
                 <thead>
                     <tr>
@@ -139,7 +131,6 @@
             </table>
 
             <h3 class="drinks_headline">Rosé</h3>
-
             <table id="roseTable">
                 <thead>
                     <tr>
@@ -157,7 +148,6 @@
             </table>
 
             <h3 class="drinks_headline">Champagne</h3>
-
             <table id="champagneTable">
                 <thead>
                     <tr>
@@ -174,9 +164,7 @@
                 </tbody>
             </table>
 
-
             <h3 class="drinks_headline">Drinkar</h3>
-
             <table id="drinkTable">
                 <thead>
                     <tr>
@@ -193,9 +181,7 @@
                 </tbody>
             </table>
 
-
             <h3 class="drinks_headline">Öl</h3>
-
             <table id="beerTable">
                 <thead>
                     <tr>
@@ -212,9 +198,7 @@
                 </tbody>
             </table>
 
-
             <h3 class="drinks_headline">Alkoholfritt</h3>
-
             <table id="alcoholfreeTable">
                 <thead>
                     <tr>
@@ -230,32 +214,12 @@
                     <!-- Category "Alkoholfritt" -->
                 </tbody>
             </table>
-
         </section>
 
         <section id="bookingsection" style="display:none;">
             <h2 id="bookingTitle">Bokningar</h2>
             <ul id="bookingList"></ul>
         </section>
-
-        <!-- Sektion för registrering av nya användare -->
-        <section id="registrationSection" style="display:none;">
-
-            <h2 id="registerTitle">Registrera ny användare</h2>
-
-            <form id="regForm">
-
-                <label for="username">Användarnamn: </label> <br>
-                <input type="text" id="username" name="username">
-                <br> <br>
-                <label for="password">Lösenord: </label> <br>
-                <input type="password" id="password" name="password">
-                <br>
-                <button type="submit">Registrera användare</button>
-            </form>
-
-        </section>
-
 
     </main>
 
