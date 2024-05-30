@@ -10,13 +10,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const url = "https://backend-projekt-api-2zmb.onrender.com/api";
 
+    // Add focus event listeners to input fields to clear loginMessage
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+
+    if (usernameInput && passwordInput) {
+        usernameInput.addEventListener("focus", () => {
+            loginMessage.textContent = "";
+        });
+        passwordInput.addEventListener("focus", () => {
+            loginMessage.textContent = "";
+        });
+    }
+
     //event submit loginForm
     if (loginForm) {
         loginForm.addEventListener("submit", async function (event) {
             event.preventDefault();//prevent standard form behavior
 
+            loadingMessage.style.display = "none";//set to display none
+
             //Text "Loading" shows while awaiting fetch
             if (loadingMessage) {
+
+                loadingMessage.style.display = "block";
 
                 loadingMessage.innerText = "Loading";
 
@@ -75,13 +92,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 } else {
                     const errorMessage = await response.json();
-                    loginMessage.textContent = errorMessage.error;
+                    loginMessage.textContent = errorMessage.error || "Fel användarnamn eller lösenord!!";
+                    loadingMessage.style.display = "none";
                 }
 
             } catch (error) {
                 console.error('Inloggningsfel:', error);
                 loginMessage.textContent = 'Ett fel inträffade vid inloggningen. Försök igen senare.';
+
             }
+
         });
     }
 });

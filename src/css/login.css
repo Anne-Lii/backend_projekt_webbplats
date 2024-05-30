@@ -33,6 +33,10 @@ input {
     border-radius: 5px;
 }
 
+#loginMessage {
+    color: #d8d2b2;
+}
+
 #loadingMessage {
     color: #d8d2b2;
 }

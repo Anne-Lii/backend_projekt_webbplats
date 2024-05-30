@@ -591,11 +591,24 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const loginMessage = document.getElementById("loginMessage");
     const loadingMessage = document.getElementById("loadingMessage");
     const url = "https://backend-projekt-api-2zmb.onrender.com/api";
+    // Add focus event listeners to input fields to clear loginMessage
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    if (usernameInput && passwordInput) {
+        usernameInput.addEventListener("focus", ()=>{
+            loginMessage.textContent = "";
+        });
+        passwordInput.addEventListener("focus", ()=>{
+            loginMessage.textContent = "";
+        });
+    }
     //event submit loginForm
     if (loginForm) loginForm.addEventListener("submit", async function(event) {
         event.preventDefault(); //prevent standard form behavior
+        loadingMessage.style.display = "none"; //set to display none
         //Text "Loading" shows while awaiting fetch
         if (loadingMessage) {
+            loadingMessage.style.display = "block";
             loadingMessage.innerText = "Loading";
             loadingMessage.innerText = "Loading.";
             setTimeout(()=>{
@@ -639,7 +652,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 window.location.href = "admin.html";
             } else {
                 const errorMessage = await response.json();
-                loginMessage.textContent = errorMessage.error;
+                loginMessage.textContent = errorMessage.error || "Fel anv\xe4ndarnamn eller l\xf6senord!!";
+                loadingMessage.style.display = "none";
             }
         } catch (error) {
             console.error("Inloggningsfel:", error);

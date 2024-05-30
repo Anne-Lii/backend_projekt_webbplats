@@ -31,7 +31,7 @@ input {
   padding: 7px;
 }
 
-#loadingMessage {
+#loginMessage, #loadingMessage {
   color: #d8d2b2;
 }
 
