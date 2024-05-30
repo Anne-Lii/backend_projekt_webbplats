@@ -602,6 +602,22 @@ document.addEventListener("DOMContentLoaded", ()=>{
             loginMessage.textContent = "";
         });
     }
+    //start Loading... animation when login
+    let loadingInterval;
+    function startLoadingAnimation() {
+        let dotCount = 0;
+        loadingInterval = setInterval(()=>{
+            let dots = ".".repeat(dotCount % 4) // Cycle through 0 to 3 dots
+            ;
+            loadingMessage.innerText = `Loading${dots}`;
+            dotCount++;
+        }, 500);
+    }
+    //stop Loading... animation
+    function stopLoadingAnimation() {
+        clearInterval(loadingInterval);
+        loadingMessage.innerText = ""; //clear loading message
+    }
     //event submit loginForm
     if (loginForm) loginForm.addEventListener("submit", async function(event) {
         event.preventDefault(); //prevent standard form behavior
@@ -609,14 +625,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         //Text "Loading" shows while awaiting fetch
         if (loadingMessage) {
             loadingMessage.style.display = "block";
-            loadingMessage.innerText = "Loading";
-            loadingMessage.innerText = "Loading.";
-            setTimeout(()=>{
-                loadingMessage.innerText = "Loading..";
-            }, 500);
-            setTimeout(()=>{
-                loadingMessage.innerText = "Loading...";
-            }, 1000);
+            startLoadingAnimation(); // Start loading message
         }
         // Get username and password from inlogForm
         const username = document.getElementById("username").value;
@@ -643,7 +652,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 localStorage.setItem("username", username);
                 //clear messages
                 loginMessage.innerHTML = "";
-                if (loadingMessage) loadingMessage.innerText = "";
+                stopLoadingAnimation(); // Stop loading message
                 // check if user is authenticated
                 const localtoken = localStorage.getItem("token");
                 if (!localtoken) //unvalid JTW message redirect to login
@@ -653,11 +662,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
             } else {
                 const errorMessage = await response.json();
                 loginMessage.textContent = errorMessage.error || "Fel anv\xe4ndarnamn eller l\xf6senord!!";
-                loadingMessage.style.display = "none";
+                stopLoadingAnimation(); // Stop loading message
             }
         } catch (error) {
             console.error("Inloggningsfel:", error);
             loginMessage.textContent = "Ett fel intr\xe4ffade vid inloggningen. F\xf6rs\xf6k igen senare.";
+            stopLoadingAnimation(); // Stop loading message
         }
     });
 });
