@@ -8,7 +8,7 @@ html {
     height: 100%;
     width: 100%;
     scroll-behavior: smooth;
-} 
+}
 
 /* hide link that is just for build */
 #link_admin {
@@ -29,9 +29,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;   
+    padding: 20px;
     position: relative;
-    z-index: 4; 
+    z-index: 4;
 }
 
 #header_name {
@@ -46,8 +46,8 @@ nav {
     position: fixed;
     top: 0px;
     right: 0;
-    padding: 50px 0; 
-    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 50px 0;
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     z-index: 2;
 }
@@ -75,7 +75,7 @@ nav ul li a {
 }
 
 .menu-btn {
-    display: none;   
+    display: none;
 }
 
 #div_hero {
@@ -83,7 +83,8 @@ nav ul li a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 60px); /* Justera höjden beroende på headerns höjd */
+    height: calc(100vh - 60px);
+    /* Justera höjden beroende på headerns höjd */
     text-align: center;
 }
 
@@ -96,21 +97,21 @@ nav ul li a {
     margin-top: 20px;
     border: 3px solid #d8d2b2;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.5);    
-    
+    background-color: rgba(0, 0, 0, 0.5);
+
 }
 
 #boka_btn a {
     font-size: 24px;
     color: #d8d2b2;
-    text-decoration: none;    
+    text-decoration: none;
 }
 
 #div_etoile {
     width: 100%;
     height: 600px;
     background-color: rgb(63, 62, 60);
-    padding: 100px 0 50px 0;    
+    padding: 100px 0 50px 0;
 }
 
 #presentation {
@@ -138,21 +139,23 @@ nav ul li a {
     color: #d8d2b2;
 }
 
-#link_editMenu, #link_admin {
+#link_editMenu,
+#link_admin {
     display: none;
 }
 
 #div_booking {
     width: 100%;
     min-height: 150px;
-    background-color: #f7f5ed;   
+    background-color: #f7f5ed;
     padding-top: 200px;
     padding-bottom: 500px;
     font-family: "Cormorant Garamond", serif;
     font-weight: 600;
-    font-style: italic; 
-    font-size: 24px;  
+    font-style: italic;
+    font-size: 24px;
 }
+
 #div_booking h4 {
     font-size: 1.4em;
 }
@@ -167,11 +170,12 @@ nav ul li a {
     color: #d8d2b2;
 }
 
-#bookingForm #time,#bookingForm #date {
+#bookingForm #time,
+#bookingForm #date {
     width: 120px;
 }
 
-#bookingForm #guests{
+#bookingForm #guests {
     width: 120px;
 }
 
@@ -182,15 +186,15 @@ nav ul li a {
 
 #bookingBtn {
     padding: 10px 0;
-    width: 100%;    
-    color:black;
+    width: 100%;
+    color: black;
     border-radius: 5px;
-    font-size: 20px;  
-    background-color:  #d8d2b2;  
+    font-size: 20px;
+    background-color: #d8d2b2;
 }
 
 #bookingBtn:hover {
-    box-shadow: 5px 5px 10px black; 
+    box-shadow: 5px 5px 10px black;
 }
 
 #div_find {
@@ -201,9 +205,10 @@ nav ul li a {
     padding-bottom: 430px;
     font-family: "Cormorant Garamond", serif;
     font-weight: 600;
-    font-style: italic; 
-    font-size: 24px;   
+    font-style: italic;
+    font-size: 24px;
 }
+
 #div_find h3 {
     font-size: 42px;
 }
@@ -229,14 +234,14 @@ nav ul li a {
         opacity: 95%;
         display: none;
     }
-  
+
     nav ul {
         width: 100%;
         list-style-type: none;
         text-align: center;
         margin: 20px auto;
         float: none;
-        display: block;     
+        display: block;
     }
 
     nav li {
@@ -245,14 +250,14 @@ nav ul li a {
     }
 
     nav li:hover {
-      text-decoration: underline 3px solid #d8d2b2;
+        text-decoration: underline 3px solid #d8d2b2;
     }
 
     /* Menu button to open menu */
     .menu-btn {
         display: flex;
         align-items: center;
-        padding: 8px 15px ;
+        padding: 8px 15px;
         cursor: pointer;
         background-color: transparent;
         border: none;
@@ -270,7 +275,7 @@ nav ul li a {
     }
 
     .menu-icon {
-        margin-right: 10px;       
+        margin-right: 10px;
     }
 
     /* burgermenu bars */
@@ -278,7 +283,7 @@ nav ul li a {
         display: block;
         width: 40px;
         height: 5px;
-        background-color:  #d8d2b2;
+        background-color: #d8d2b2;
         margin: 7px 0;
     }
 
@@ -292,7 +297,7 @@ nav ul li a {
         transform: rotate(45deg);
         position: relative;
         top: -8px;
-        border-radius: 5px;        
+        border-radius: 5px;
     }
 
     .cross2 {
@@ -312,10 +317,10 @@ nav ul li a {
 
     #div_etoile {
         width: 100%;
-        height:auto;
+        height: auto;
         background-color: rgb(63, 62, 60);
     }
-    
+
     #presentation {
         display: block;
         text-align: center;
@@ -344,6 +349,17 @@ nav ul li a {
 
     #bookingForm {
         width: 80%;
-        max-width: 650px;       
+        max-width: 650px;
+    }
+
+    #header_name {
+        width: 200px;
+        padding-top: 20px;
+        padding-left: 20px;
+        z-index: 2;
+    }
+
+    nav {
+        background-color: rgba(0, 0, 0, 0.7);
     }
 }
