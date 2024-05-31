@@ -45,7 +45,6 @@
     padding: 10px; 
     box-sizing: border-box;   
     max-width: 400px;       
-     
     flex: 1 1 calc(30% - 40px);/* Take up 30% of the width minus gap */
 }
 

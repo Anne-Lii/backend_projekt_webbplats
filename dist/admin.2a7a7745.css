@@ -13,6 +13,12 @@ body {
   padding: 50px 0 30px 50px;
 }
 
+#menu_container {
+  grid-gap: 10px;
+  grid-template-columns: 1fr;
+  display: grid;
+}
+
 .vertical_menu {
   float: left;
   flex-direction: column;
@@ -35,12 +41,6 @@ body {
 .vertical_menu a:hover {
   background-color: #353531;
   box-shadow: 5px 5px 10px #000;
-}
-
-#menu_container {
-  grid-gap: 10px;
-  grid-template-columns: 1fr;
-  display: grid;
 }
 
 #logoutBtn {

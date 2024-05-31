@@ -151,7 +151,7 @@ nav ul li a {
   font-weight: 600;
 }
 
-#div_booking h4 {
+#div_booking h2 {
   font-size: 1.4em;
 }
 
@@ -206,13 +206,12 @@ nav ul li a {
   font-weight: 600;
 }
 
-#div_find h3 {
+#div_find h2 {
   font-size: 42px;
 }
 
 @media screen and (width <= 1000px) {
   nav {
-    opacity: .95;
     background-color: #000000fc;
     width: 250px;
     height: 100vh;
@@ -243,7 +242,6 @@ nav ul li a {
   }
 
   .menu-btn {
-    cursor: pointer;
     background-color: #0000;
     border: none;
     align-items: center;

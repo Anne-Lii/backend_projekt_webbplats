@@ -165,7 +165,7 @@ nav ul li a {
     font-size: 24px;
 }
 
-#div_booking h4 {
+#div_booking h2 {
     font-size: 1.4em;
 }
 
@@ -226,7 +226,7 @@ nav ul li a {
     font-size: 24px;
 }
 
-#div_find h3 {
+#div_find h2 {
     font-size: 42px;
 }
 
@@ -243,7 +243,6 @@ nav ul li a {
         width: 250px;
         padding: 0;
         background-color: rgba(0, 0, 0, 0.99);
-        opacity: 95%;
         display: none;
     }
 
@@ -270,7 +269,6 @@ nav ul li a {
         display: flex;
         align-items: center;
         padding: 8px 15px;
-        cursor: pointer;
         background-color: transparent;
         border: none;
         position: fixed;

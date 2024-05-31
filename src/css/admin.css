@@ -16,6 +16,11 @@ body {
 }
 
 /* VERTICAL NAVIGATION WITH LINKS */
+#menu_container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+}
 .vertical_menu {
     width: 40%;
     max-width: 300px;
@@ -36,15 +41,10 @@ body {
 }
 
 .vertical_menu a:hover {
-    background-color: rgb(53, 53, 49);
+    background-color: #353531;
     box-shadow: 5px 5px 10px black;
 }
 
-#menu_container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 10px;
-}
 
 #logoutBtn {
     background-color: #cfcec6;
