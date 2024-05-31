@@ -592,6 +592,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Add new booking   
     const bookingForm = document.getElementById("bookingForm");
     const messageBooking = document.getElementById("messageBooking");
+    //Event listener submit bookingForm adds a booking with POST
     if (bookingForm) bookingForm.addEventListener("submit", async function(event) {
         event.preventDefault();
         // Check if all required fields have been filled
@@ -616,6 +617,7 @@ document.addEventListener("DOMContentLoaded", function() {
             guests
         };
         try {
+            // Send a POST request to post the booking on the server
             const response = await fetch(bookingsUrl, {
                 method: "POST",
                 headers: {

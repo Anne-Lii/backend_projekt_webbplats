@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
     async function fetchDrinkItemsAndDraw(category) {
         try {
             const drinkItems = await fetchItems(drinkUrl);
-            // Filtera dryckesobjekten baserat på kategori
+            // Filter drinks based on category
             const filteredDrinkItems = drinkItems.filter(item => item.category.toLowerCase() === category.toLowerCase());
             drawItems(filteredDrinkItems, getTableIdFromCategory(category));
         } catch (error) {
@@ -155,19 +155,21 @@ document.addEventListener("DOMContentLoaded", () => {
             cellDescription.textContent = item.description;
             cellPrice.textContent = item.price;
 
+            //create edit button to every item on table
             const editButton = document.createElement('button');
             editButton.className = 'btn btn-edit';
             editButton.onclick = () => {
-                isAddingNew = false; // Set to false when editing
-                showModal(item);
+                isAddingNew = false; 
+                showModal(item);//calling the function to show the Modal for editing
             };
-            cellEdit.appendChild(editButton);
+            cellEdit.appendChild(editButton);//write to DOM
 
+            //create delete button to every item on table
             const deleteButton = document.createElement('button');
             deleteButton.setAttribute('data-id', item._id);
             deleteButton.className = 'btn btn-delete';
             deleteButton.onclick = () => deleteItem(deleteButton.getAttribute('data-id'), item.category, item.food ? 'food' : 'drink'); // Use ID from data attribute in deleteItem function
-            cellDelete.appendChild(deleteButton);
+            cellDelete.appendChild(deleteButton);//write to DOM
         });
 
         // Show the table after it has been filled
@@ -187,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // When the user clicks anywhere outside of the modal, close it
+    // When the user clicks anywhere outside of the modal, it closes
     window.onclick = function (event) {
         if (event.target == updateModal) {
             updateModal.style.display = "none";
@@ -225,7 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Add event listener to update isAddingNew flag when submitting
         submitBtn.addEventListener("click", function () {
-            isAddingNew = false; // Change the value to false when updating
+            isAddingNew = false;
         });
 
         updateModal.style.display = "block";
@@ -244,7 +246,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Add event listener to update isAddingNew flag when submitting
         addFoodSubmitBtn.addEventListener("click", async function () {
-            isAddingNew = true; // Change the value on flag to false when updating
+            isAddingNew = true; // 
             foodModal.style.display = "none"; // Hide the modal after adding
         });
         foodModal.style.display = "block";
@@ -263,8 +265,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Add event listener to update isAddingNew flag when submitting
         addDrinkSubmitBtn.addEventListener("click", function () {
-            isAddingNew = true; // Change the value on flag to false when updating
-            drinkModal.style.display = "none"; // Hide the modal after adding
+            isAddingNew = true; 
+            drinkModal.style.display = "none"; 
         });
         drinkModal.style.display = "block";
     }
@@ -317,7 +319,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error('Error adding new food item:', error);
         }
 
-        const selectedCategory = document.getElementById("foodcategory").value.toLowerCase(); // Hämta vald kategori och gör om den till gemener
+        const selectedCategory = document.getElementById("foodcategory").value.toLowerCase(); // Get choosen category and turn to small letters
         fetchFoodItemsAndDraw(selectedCategory);//update table
     });
 
@@ -474,7 +476,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-    //
+    //get bookings
     async function fetchBookings() {
         try {
             const response = await fetch(bookingsUrl);

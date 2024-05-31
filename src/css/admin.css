@@ -1,3 +1,5 @@
+/* CSS FOR ADMIN PAGE */
+
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +15,7 @@ body {
     padding: 50px 0 30px 50px;
 }
 
-/* VERTICAL ADMIN MENU */
+/* VERTICAL NAVIGATION WITH LINKS */
 .vertical_menu {
     width: 40%;
     max-width: 300px;
@@ -123,6 +125,7 @@ thead {
     background-color: #dddcdc;
 }
 
+/* BUTTON TO ADD DRINK OR FOOD */
 #addDrinkButton,
 #addFoodButton {
     background-color: rgb(83, 83, 69);
@@ -185,6 +188,7 @@ thead {
     color: #fff;
 }
 
+/* MODAL FOR UPDATING BOOKINGS */
 #updateBookingForm label{
     font-size: 18px;
     width: 100%;
@@ -237,6 +241,7 @@ thead {
     margin-top: 20px;
 }
 
+/* MODAL FOR UPDATING FOOD AND DRINKS */
 #updateModal select {
     width: 100%;
     font-size: 16px;
@@ -269,6 +274,7 @@ thead {
     cursor: pointer;
 }
 
+/* MESSAGE IN MODAL */
 .modalFieldMessage {
     color: rgb(194, 85, 35);
     font-size: 14px;
@@ -284,6 +290,7 @@ thead {
     margin: 10px auto;
 }
 
+/* MODAL FOR ADDING FOOD */
 #addFoodModal input{
     font-size: 14px;
     width: 100%;
@@ -296,6 +303,7 @@ thead {
     height: 30px;
 }
 
+/* MODAL FOR ADDING DRINKS */
 #addDrinkModal input {
     font-size: 14px;
     width: 100%;
@@ -308,6 +316,7 @@ thead {
     height: 30px;
 }
 
+/* LAYOUT FOR SMALLER SCREENS 1600 - 1100 PX */
 @media screen and (max-width: 1600px)  and (min-width: 1100px){
 
     main {
@@ -349,7 +358,8 @@ thead {
     }
 }
 
-@media screen and  (max-width: 1099px)  and (min-width: 901px) {
+/* LAYOUT FOR SMALLER SCREENS 1099 - 900 PX */
+@media screen and  (max-width: 1099px)  and (min-width: 900px) {
     main {
         float: right;
         margin-right: 30px;
@@ -368,7 +378,8 @@ thead {
     }
 }
 
-@media screen and (max-width: 900px) {
+/* LAYOUT FOR SMALLER SCREENS UNDER 899 PX */
+@media screen and (max-width: 899px) {
    
     header h1 {       
         padding: 50px 0;

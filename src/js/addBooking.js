@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const bookingForm = document.getElementById('bookingForm');
     const messageBooking = document.getElementById('messageBooking');
 
+    //Event listener submit bookingForm adds a booking with POST
     if (bookingForm) {
         bookingForm.addEventListener('submit', async function (event) {
             event.preventDefault();
@@ -34,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const newBooking = { name, email, phone, date, time, guests };
 
             try {
+                 // Send a POST request to post the booking on the server
                 const response = await fetch(bookingsUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },

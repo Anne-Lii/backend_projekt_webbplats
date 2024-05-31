@@ -67,12 +67,12 @@ nav ul li a {
   text-decoration: none;
 }
 
-#lock {
-  font-size: 20px;
-}
-
 .menu-btn {
   display: none;
+}
+
+#lock {
+  font-size: 20px;
 }
 
 #div_hero {
@@ -138,10 +138,6 @@ nav ul li a {
   font-size: 1.2em;
 }
 
-#link_editMenu, #link_admin {
-  display: none;
-}
-
 #div_booking {
   background-color: #f7f5ed;
   width: 100%;
@@ -190,6 +186,13 @@ nav ul li a {
   box-shadow: 5px 5px 10px #000;
 }
 
+#messageBooking {
+  color: #53a388;
+  text-align: center;
+  margin: 0 0 10px;
+  font-size: 36px;
+}
+
 #div_find {
   text-align: center;
   background-color: #f7f5ed;
@@ -204,13 +207,6 @@ nav ul li a {
 
 #div_find h3 {
   font-size: 42px;
-}
-
-#messageBooking {
-  color: #4dcca2;
-  text-align: center;
-  margin: 0 0 10px;
-  font-size: 36px;
 }
 
 @media screen and (width <= 1000px) {

@@ -2,10 +2,10 @@
 "use strict"
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOMContentLoaded event fired");
 
     const url = "https://backend-projekt-api-2zmb.onrender.com/api/drinks";
 
+    //get drinks from API with fetch
     fetch(url)
         .then(response => response.json())
         .then(data => {
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(error => console.error("Ett fel uppstod när dryck skulle hämtas", error));
 
-
+    //display drink category
     function displayDrinks(drinkItems) {
         const whiteDiv = document.getElementById('white');
         const redDiv = document.getElementById('red');
@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const beerDiv = document.getElementById('beer');
         const alcoholfreeDiv = document.getElementById('alcoholfree');
 
+        //loop throu drinks and create new elements to put them in
         drinkItems.forEach(item => {
             const menuItem = document.createElement('div');
             menuItem.classList.add('menu-item');
@@ -33,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <p>Pris: ${item.price} kr</p>
         `;
 
+        //write to DOM depending on category
             switch (item.category) {
                 case 'white':
                     whiteDiv.appendChild(menuItem);
@@ -61,5 +63,4 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
-
 });

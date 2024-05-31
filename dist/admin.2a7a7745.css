@@ -320,7 +320,7 @@ thead {
   }
 }
 
-@media screen and (width <= 1099px) and (width >= 901px) {
+@media screen and (width <= 1099px) and (width >= 900px) {
   main {
     float: right;
     margin-right: 30px;
@@ -337,7 +337,7 @@ thead {
   }
 }
 
-@media screen and (width <= 900px) {
+@media screen and (width <= 899px) {
   header h1 {
     width: 100%;
     max-width: 300px;

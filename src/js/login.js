@@ -8,12 +8,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const loginMessage = document.getElementById("loginMessage");
     const loadingMessage = document.getElementById("loadingMessage");
 
+    //URL
     const url = "https://backend-projekt-api-2zmb.onrender.com/api";
 
     // Add focus event listeners to input fields to clear loginMessage
     const usernameInput = document.getElementById("username");
     const passwordInput = document.getElementById("password");
 
+    //reset loginmessage when clicking on input
     if (usernameInput && passwordInput) {
         usernameInput.addEventListener("focus", () => {
             loginMessage.textContent = "";
@@ -23,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    //start Loading... animation when login
+    //start 'Loading...' animation when login
     let loadingInterval;
     function startLoadingAnimation() {
         let dotCount = 0;

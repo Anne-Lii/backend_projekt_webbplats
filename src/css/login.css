@@ -1,3 +1,5 @@
+/* CSS FOR LOGIN PAGE */
+
 body {
     background-color: rgb(71, 68, 64);
     width: 100%;
@@ -12,6 +14,7 @@ main {
     padding-top: 300px;
 }
 
+/* LOGO */
 img {
     width: 100%;
     max-width: 200px;
@@ -35,10 +38,12 @@ input {
     color: #d8d2b2;
 }
 
+/* LOADINGMESSAGE */
 #loadingMessage {
     color: #d8d2b2;
 }
 
+/* LOGIN BUTTON */
 button {
     padding: 10px 30px;
     margin-top: 20px;
@@ -52,13 +57,14 @@ button:hover {
     box-shadow: 5px 5px 10px black;
 }
 
+/* SMALLER SCREENS */
 @media  screen and (max-width: 1000px) {
     main {
         padding-top: 100px;
     }
 }
 
-/* login för landscape screen */
+/* LOGIN FOR LANDSCAPE ORIENTATION */
 @media screen and (orientation: landscape) {
     main {
         padding-top: 100px;
