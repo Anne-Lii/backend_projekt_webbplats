@@ -22,7 +22,6 @@
             <a href="#" id="link_edit_drinks">Redigera dryck</a>
             <a href="#" id="link_edit_bookings">Bokningar</a>
         </aside>
-
         <button id="logoutBtn">Logga ut</button>
     </div>
 
@@ -31,11 +30,8 @@
 
         <!-- Sektion för redigering av mat -->
         <section id="foodSection" style="display: none">
-
             <h2 id="foodTitle">Mat</h2>
-
             <button id="addFoodButton">Lägg till ny mat</button>
-
             <h3 class="foods_headline">Smårätter</h3>
             <table id="smallDishesTable">
                 <thead>
@@ -88,10 +84,8 @@
             </table>
         </section>
 
-
         <!-- Sektion för redigering av drycker -->
         <section id="drinkSection" style="display: none">
-
             <h2 id="drinkTitle">Dryck</h2>
 
             <button id="addDrinkButton">Lägg till ny dryck</button>
@@ -244,21 +238,20 @@
                 <label for="name">Namn:</label>
                 <input type="text" id="name" name="name"><br>
                 <label for="description">Beskrivning:</label>
-                <input type="textarea" id="description" name="description"><br>
+                <input type="text" id="description" name="description"><br>
                 <label for="price">Pris:</label>
                 <input type="text" id="price" name="price"><br>
                 <div class="modalFieldMessage" style="display: none">Alla fält måste fyllas i</div>
                 <button type="submit" id="submitBtn">Uppdatera</button>
-
             </form>
         </div>
     </div>
 
-     <!-- The UpdateBooking Modal -->
-     <div id="updateBookingModal" class="modal">
+    <!-- The UpdateBooking Modal -->
+    <div id="updateBookingModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <form id="updateBookingForm">                
+            <form id="updateBookingForm">
                 <label for="bookingname">För och efternamn:</label>
                 <input type="text" id="bookingname" name="bookingname"><br>
                 <label for="bookingemail">Epost:</label>
@@ -271,9 +264,7 @@
                 <input type="time" id="bookingtime" name="bookingtime"><br>
                 <label for="bookingguests">Antal gäster:</label>
                 <input type="number" id="bookingguests" name="bookingguests"><br>
-
                 <div class="modalFieldMessage" style="display: none">Alla fält måste fyllas i</div>
-                
                 <button type="submit" id="submitBookingBtn">Uppdatera</button>
 
             </form>
@@ -294,12 +285,11 @@
                 <label for="foodname">Namn:</label>
                 <input type="text" id="foodname" name="foodname"><br>
                 <label for="fooddescription">Beskrivning:</label>
-                <input type="textarea" id="fooddescription" name="fooddescription"><br>
+                <input type="text" id="fooddescription" name="fooddescription"><br>
                 <label for="foodprice">Pris:</label>
                 <input type="text" id="foodprice" name="foodprice"><br>
                 <div class="modalFieldMessage" style="display: none">Alla fält måste fyllas i</div>
                 <button type="submit" id="addFoodSubmitBtn">Lägg till</button>
-
             </form>
         </div>
     </div>
@@ -322,18 +312,14 @@
                 <label for="drinkname">Namn:</label>
                 <input type="text" id="drinkname" name="drinkname"><br>
                 <label for="drinkdescription">Beskrivning:</label>
-                <input type="textarea" id="drinkdescription" name="drinkdescription"><br>
+                <input type="text" id="drinkdescription" name="drinkdescription"><br>
                 <label for="drinkprice">Pris:</label>
                 <input type="text" id="drinkprice" name="drinkprice"><br>
                 <div class="modalFieldMessage" style="display: none">Alla fält måste fyllas i</div>
                 <button type="submit" id="addDrinkSubmitBtn">Lägg till</button>
-
             </form>
         </div>
     </div>
-
-
-
 </body>
 
 </html>

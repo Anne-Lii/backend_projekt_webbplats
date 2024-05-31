@@ -586,38 +586,44 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 },{}],"cHucQ":[function(require,module,exports) {
 //code written by Anne-Lii Hansen VT 2024
 "use strict";
+//URL
 const foodUrl = "https://backend-projekt-api-2zmb.onrender.com/api/foods";
 const drinkUrl = "https://backend-projekt-api-2zmb.onrender.com/api/drinks";
 const bookingsUrl = "https://backend-projekt-api-2zmb.onrender.com/api/bookings";
 let currentItem = null; //stores the current item beeing edited global
 let isAddingNew = false; //flag for knowing if modal adds new or updates 
 let currentEditingBooking = null; // Declare a global variable to store the currently editing booking
+//Sections for different parts of the application
 const bookingSection = document.getElementById("bookingsection");
 const foodSection = document.getElementById("foodSection");
 const drinkSection = document.getElementById("drinkSection");
 const registrationSection = document.getElementById("registrationSection");
-// Get the modals
+// Modals for adding/updating food, drinks and bookings
 const updateModal = document.getElementById("updateModal"); //update food and drinks
 const updateBookingModal = document.getElementById("updateBookingModal"); //update bookings modal
 const foodModal = document.getElementById("addFoodModal"); //add food modal
 const drinkModal = document.getElementById("addDrinkModal"); //add drinks modal
+//form for booking
 const bookingForm = document.getElementById("bookingForm"); //Booking Form to fill in
+//Event listener for DOM content loaded
 document.addEventListener("DOMContentLoaded", ()=>{
-    // Link to show and edit food
+    // Event listener for the food link to show and edit food
     document.getElementById("link_edit_food").addEventListener("click", function(event) {
+        // Prevent the default form submission behavior
         event.preventDefault();
+        // Fetch and display food items in different categories
         fetchFoodItemsAndDraw("sm\xe5r\xe4tter");
         fetchFoodItemsAndDraw("varmr\xe4tt");
         fetchFoodItemsAndDraw("dessert");
-        //change this to display block and others to none
+        // Display the food section and hide others
         foodSection.style.display = "block";
         bookingSection.style.display = "none";
         drinkSection.style.display = "none";
-        registrationSection.style.display = "none";
     });
-    // Link to show and edit drinks
+    // Event listener for the drinks link to show and edit drinks
     document.getElementById("link_edit_drinks").addEventListener("click", function(event) {
         event.preventDefault();
+        // Fetch and display drink items in different categories
         fetchDrinkItemsAndDraw("white");
         fetchDrinkItemsAndDraw("red");
         fetchDrinkItemsAndDraw("rose");
@@ -625,24 +631,22 @@ document.addEventListener("DOMContentLoaded", ()=>{
         fetchDrinkItemsAndDraw("drink");
         fetchDrinkItemsAndDraw("beer");
         fetchDrinkItemsAndDraw("alcoholfree");
-        //change BOOKINGS display: block to none
-        bookingSection.style.display = "none";
-        //change FOOD display: block to none
-        foodSection.style.display = "none";
-        //change DRINK display: none to block
+        // Display the drinks section and hide others
         drinkSection.style.display = "block";
-        //change REGISTER display: block to none
-        registrationSection.style.display = "none";
+        bookingSection.style.display = "none";
+        foodSection.style.display = "none";
     });
+    // Function to fetch and draw food items based on category
     async function fetchFoodItemsAndDraw(category) {
         try {
-            const foodItems = await fetchItems(foodUrl); // Hämta alla matobjekt            
+            const foodItems = await fetchItems(foodUrl); // Fetch all food items      
             const filteredFoodItems = foodItems.filter((item)=>item.category.toLowerCase() === category.toLowerCase());
-            drawItems(filteredFoodItems, getTableIdFromCategory(category)); // Rita matobjekt i rätt tabell baserat på kategori
+            drawItems(filteredFoodItems, getTableIdFromCategory(category)); // Draw food items in the right table
         } catch (error) {
             console.error("Error fetching food items:", error);
         }
     }
+    // Function to get table ID based on category
     function getTableIdFromCategory(category) {
         switch(category.toLowerCase()){
             case "sm\xe5r\xe4tter":
@@ -669,6 +673,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 return "";
         }
     }
+    // Function to fetch and draw drink items based on category
     async function fetchDrinkItemsAndDraw(category) {
         try {
             const drinkItems = await fetchItems(drinkUrl);
@@ -679,6 +684,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
             console.error("Error fetching drink items:", error);
         }
     }
+    // Function to fetch items from the API
     async function fetchItems(url, type) {
         try {
             const response = await fetch(url);
@@ -689,6 +695,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
             throw error;
         }
     }
+    // Function to draw items in a table
     function drawItems(items, tableId) {
         const table = document.getElementById(tableId);
         if (!table) {
@@ -720,7 +727,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
             const deleteButton = document.createElement("button");
             deleteButton.setAttribute("data-id", item._id);
             deleteButton.className = "btn btn-delete";
-            deleteButton.onclick = ()=>deleteItem(deleteButton.getAttribute("data-id"), item.category, item.food ? "food" : "drink"); // Använd ID:et från data-attributet i deleteItem-funktionen
+            deleteButton.onclick = ()=>deleteItem(deleteButton.getAttribute("data-id"), item.category, item.food ? "food" : "drink"); // Use ID from data attribute in deleteItem function
             cellDelete.appendChild(deleteButton);
         });
         // Show the table after it has been filled
@@ -762,6 +769,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
             price: ""
         }); // Set modal for adding new drink
     });
+    // Function to show the update modal with the current item details
     function showModal(item) {
         currentItem = item; // Store the current item being edited
         document.getElementById("name").value = item ? item.food || item.drinkname : "";
@@ -776,6 +784,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         });
         updateModal.style.display = "block";
     }
+    // Function to show the add food modal
     function showFoodModal(item) {
         currentItem = item; // Store the current item being edited
         document.getElementById("foodname").value = item ? item.food : "";
@@ -786,11 +795,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
         const addFoodSubmitBtn = document.getElementById("addFoodSubmitBtn");
         // Add event listener to update isAddingNew flag when submitting
         addFoodSubmitBtn.addEventListener("click", async function() {
-            isAddingNew = true; // Change the value to false when updating
+            isAddingNew = true; // Change the value on flag to false when updating
             foodModal.style.display = "none"; // Hide the modal after adding
         });
         foodModal.style.display = "block";
     }
+    // Function to show the add drink modal
     function showDrinkModal(item) {
         currentItem = item; // Store the current item being edited
         document.getElementById("drinkname").value = item ? item.drinkname : "";
@@ -801,12 +811,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
         const addDrinkSubmitBtn = document.getElementById("addDrinkSubmitBtn");
         // Add event listener to update isAddingNew flag when submitting
         addDrinkSubmitBtn.addEventListener("click", function() {
-            isAddingNew = true; // Change the value to false when updating
+            isAddingNew = true; // Change the value on flag to false when updating
             drinkModal.style.display = "none"; // Hide the modal after adding
         });
         drinkModal.style.display = "block";
     }
-    // Händelselyssnare för att lägga till ny matpost
+    // Event listener for adding a new food item
     document.getElementById("foodForm").addEventListener("submit", async function(event) {
         event.preventDefault();
         // Check if all required fields have been filled
@@ -814,11 +824,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
         const description = document.getElementById("fooddescription").value;
         const price = document.getElementById("foodprice").value;
         if (!name || !description || !price) {
+            // Display a message if any field is missing
             const modalFieldMessage = foodModal.querySelector(".modalFieldMessage");
             modalFieldMessage.textContent = "Alla f\xe4lt m\xe5ste fyllas i";
             modalFieldMessage.style.display = "block";
             foodModal.style.display = "block";
-            return; // Stop further execution if required fields are not filled
+            return;
         } else {
             const modalFieldMessage = foodModal.querySelector(".modalFieldMessage");
             modalFieldMessage.style.display = "none";
@@ -831,6 +842,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
             price: document.getElementById("foodprice").value
         };
         try {
+            // Send a POST request to add food on the server
             const response = await fetch(foodUrl, {
                 method: "POST",
                 headers: {
@@ -846,7 +858,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         const selectedCategory = document.getElementById("foodcategory").value.toLowerCase(); // Hämta vald kategori och gör om den till gemener
         fetchFoodItemsAndDraw(selectedCategory); //update table
     });
-    // Händelselyssnare för att lägga till ny dryckspost
+    // Event listener for adding a new drink item
     document.getElementById("drinkForm").addEventListener("submit", async function(event) {
         event.preventDefault();
         // Check if all required fields have been filled
@@ -854,11 +866,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
         const description = document.getElementById("drinkdescription").value;
         const price = document.getElementById("drinkprice").value;
         if (!name || !description || !price) {
+            // Display a message if any field is missing
             const modalFieldMessage = drinkModal.querySelector(".modalFieldMessage");
             modalFieldMessage.textContent = "Alla f\xe4lt m\xe5ste fyllas i";
             modalFieldMessage.style.display = "block";
             drinkModal.style.display = "block";
-            return; // Stop further execution if required fields are not filled
+            return;
         } else {
             const modalFieldMessage = drinkModal.querySelector(".modalFieldMessage");
             modalFieldMessage.style.display = "none";
@@ -870,8 +883,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
             description: document.getElementById("drinkdescription").value,
             price: document.getElementById("drinkprice").value
         };
-        // Skicka POST-anrop till dryck-API för att lägga till ny dryckspost
         try {
+            // Send a POST request to add drink on the server
             const response = await fetch(drinkUrl, {
                 method: "POST",
                 headers: {
@@ -879,16 +892,14 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 },
                 body: JSON.stringify(drinkItem)
             });
-            const data = await response.json();
-            console.log("New drink item added:", data);
-        // Uppdatera dryckbordet eller gör någon annan åtgärd efter att ha lagt till drycksposten
+            await response.json();
         } catch (error) {
             console.error("Error adding new drink item:", error);
         }
-        const selectedCategory = document.getElementById("drinkcategory").value.toLowerCase(); // Hämta vald kategori och gör om den till gemener
+        const selectedCategory = document.getElementById("drinkcategory").value.toLowerCase();
         fetchDrinkItemsAndDraw(selectedCategory); //update table
     });
-    //function to handle update of items from form
+    //function to handle update of drink and food items from form
     document.getElementById("updateForm").addEventListener("submit", async function(event) {
         event.preventDefault();
         // Check if all required fields have been filled
@@ -896,11 +907,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
         const description = document.getElementById("description").value;
         const price = document.getElementById("price").value;
         if (!name || !description || !price) {
+            // Display a message if any field is missing
             const modalFieldMessage = document.querySelector(".modalFieldMessage");
             modalFieldMessage.textContent = "Alla f\xe4lt m\xe5ste fyllas i";
             modalFieldMessage.style.display = "block";
             updateModal.style.display = "block";
-            return; // Stop further execution if required fields are not filled
+            return;
         } else {
             const modalFieldMessage = document.querySelector(".modalFieldMessage");
             modalFieldMessage.style.display = "none";
@@ -922,8 +934,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 body: JSON.stringify(updatedItem)
             });
             if (!response.ok) throw new Error(isAddingNew ? "Failed to add new item" : "Failed to update item");
-            const result = await response.json();
-            console.log(result);
+            await response.json();
             // Refresh the list of items or update the table directly
             if (currentItem.food || updatedItem.food) fetchFoodItemsAndDraw(currentItem.category);
             else fetchDrinkItemsAndDraw(currentItem.category);
@@ -932,7 +943,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
             console.error("Error updating or adding item:", error);
         }
     });
-    //function to delete items from table
+    // Function to delete an item based on its ID
     function deleteItem(id, category, type) {
         const apiUrl = type === "food" ? foodUrl : drinkUrl;
         fetch(`${apiUrl}/${id}`, {
@@ -942,7 +953,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
             return response.json();
         }).then((result)=>{
             console.log("Deleted item:", result);
-            // Refresh the list of items or update the table directly
+            // Remove the item from the DOM, refresh the items list after deletion
             if (type === "food") fetchFoodItemsAndDraw(category);
             else fetchDrinkItemsAndDraw(category);
         }).catch((error)=>{
@@ -951,7 +962,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     }
     //BOOKINGS
     const bookingList = document.getElementById("bookingList");
-    // Link to see bookings
+    // Event listener for the edit booking link to show and edit bookings
     document.getElementById("link_edit_bookings").addEventListener("click", function(event) {
         event.preventDefault();
         //change section displays
@@ -961,6 +972,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         // Fetch and display bookings
         fetchBookings();
     });
+    //
     async function fetchBookings() {
         try {
             const response = await fetch(bookingsUrl);
@@ -971,6 +983,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
             console.error("Error fetching bookings: ", error);
         }
     }
+    //Function to update the booking list
     function updateBookingList(bookings) {
         // Sort bookings in bookingdates
         bookings.sort((a, b)=>new Date(a.date) - new Date(b.date));
@@ -986,13 +999,14 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 <strong>Telefonnummer:</strong> ${booking.phone} <br>
                 <strong>Skapad:</strong> ${new Date(booking.created).toLocaleDateString()} <br>
             `;
+            //Creates button to edit bookings for every booking
             const editButton = document.createElement("button");
             editButton.textContent = "Redigera";
             editButton.addEventListener("click", ()=>{
-                // Inside this listener, 'booking' is accessible
                 currentEditingBooking = booking;
                 editBooking(booking);
             });
+            //Creates button to delete bookings for every booking
             const deleteButton = document.createElement("button");
             deleteButton.textContent = "Ta bort";
             deleteButton.addEventListener("click", ()=>{
@@ -1004,8 +1018,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
             bookingList.appendChild(listItem);
         });
     }
+    //Function to delete bookings
     async function deleteBooking(id) {
         try {
+            // Send a DELETE request to update the booking on the server
             const response = await fetch(`${bookingsUrl}/${id}`, {
                 method: "DELETE"
             });
@@ -1015,6 +1031,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
             console.error("Error deleting booking:", error);
         }
     }
+    //Function to edit bookings
     function editBooking(booking) {
         //Change date format to YYY-MM-DD
         const bookingDate = new Date(booking.date);
@@ -1031,9 +1048,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
     }
     //Handle update of items from form
     document.getElementById("updateBookingForm").addEventListener("submit", async function(event) {
+        // Prevent the default form submission behavior
         event.preventDefault();
-        console.log(" klickat p\xe5 uppdatera");
-        // Check if all required fields have been filled
         const name = document.getElementById("bookingname").value;
         const email = document.getElementById("bookingemail").value;
         const phone = document.getElementById("bookingphone").value;
@@ -1041,12 +1057,14 @@ document.addEventListener("DOMContentLoaded", ()=>{
         const time = document.getElementById("bookingtime").value;
         const guests = document.getElementById("bookingguests").value;
         if (!name || !email || !phone || !date || !time || !guests) {
+            // Display a message if any field is missing
             const modalFieldMessage = document.querySelector(".modalFieldMessage");
             modalFieldMessage.textContent = "Alla f\xe4lt m\xe5ste fyllas i";
             modalFieldMessage.style.display = "block";
             updateBookingModal.style.display = "block";
-            return; // Stop further execution if required fields are not filled
-        } else document.querySelector(".modalFieldMessage").style.display = "none";
+            return;
+        } else document.querySelector(".modalFieldMessage").style.display = "none"; // Hide the error message if all fields are filled in
+        //save updated values from form
         const updatedBookingItem = {
             name,
             email,
@@ -1055,17 +1073,18 @@ document.addEventListener("DOMContentLoaded", ()=>{
             time,
             guests
         };
-        console.log(updatedBookingItem);
         try {
+            // Send a PUT request to update the booking on the server
             const response = await fetch(`${bookingsUrl}/${currentEditingBooking._id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(updatedBookingItem)
+                body: JSON.stringify(updatedBookingItem) // Convert the booking data to JSON format
             });
+            // Check if the request was successful
             if (!response.ok) throw new Error("Failed to update booking");
-            await response.json();
+            await response.json(); // Parse the response JSON (if needed)
             fetchBookings(); // Refresh the list of items or update the table directly
             updateBookingModal.style.display = "none";
         } catch (error) {
@@ -1075,20 +1094,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     window.addEventListener("click", (event)=>{
         if (event.target === updateBookingModal) updateBookingModal.style.display = "none";
     });
-/*
-    //function to register a new admin
-    document.getElementById('registrationSection').addEventListener('click', function (event) {
-        event.preventDefault();
-
-        //change REGISTER display:none to block
-        document.getElementById('registrationSection').style.display = 'block';
-        //change FOOD display:block to none
-        document.getElementById('foodSection').style.display = 'none';
-        //change DRINK display:block to none
-        document.getElementById('drinkSection').style.display = 'none';
-
-    });
-*/ });
+});
 
 },{}]},["b2mJY","cHucQ"], "cHucQ", "parcelRequire4e03")
 

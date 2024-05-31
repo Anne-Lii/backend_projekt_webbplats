@@ -10,7 +10,6 @@ main {
     margin: auto;
     text-align: center;
     padding-top: 300px;
-
 }
 
 img {
@@ -21,8 +20,7 @@ img {
 
 label {
     font-size: 24px;
-    color: #d8d2b2;
-    
+    color: #d8d2b2;    
 }
 
 input {
@@ -52,4 +50,17 @@ button {
 button:hover {
     background-color: #bbb69a;
     box-shadow: 5px 5px 10px black;
+}
+
+@media  screen and (max-width: 1000px) {
+    main {
+        padding-top: 100px;
+    }
+}
+
+/* login för landscape screen */
+@media screen and (orientation: landscape) {
+    main {
+        padding-top: 100px;
+    }
 }

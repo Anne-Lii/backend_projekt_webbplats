@@ -1,4 +1,5 @@
 
+/* MENU */
 #div_meny {
     width: 100%;
     min-height: 100vh;
@@ -10,7 +11,7 @@
     padding-bottom: 200px;
 }
 
-/* Headline MENY */
+/* Headline MENU */
 #div_meny h1 {
     font-size: 50px;
     padding-top: 200px;
@@ -26,9 +27,8 @@
     max-width: 800px; 
     margin-top: 100px;
     margin-bottom: 30px; 
-    padding-bottom: 30px;
+    padding-bottom: 10px;
 }
-
 
 /* container for ALL food */
 #smårätter, #varmrätt, #dessert, #drinks {
@@ -57,13 +57,13 @@
 }
 
 .menu-item p {
-    font-size: 1em;
+    font-size: 1.1em;
     margin: 5px 0;
     color: #666;
 }
 
 .menu-item p:last-child {
-    font-size: 1.1em;
+    font-size: 1.2em;
     font-weight: bold;
     color: #000;
 }
@@ -75,11 +75,10 @@
     border-bottom: 2px solid  #d8d2b2;
     width: 90%;
     max-width: 600px; 
-    margin-top: 200px;
-    margin-bottom: 50px; 
-    padding-bottom: 30px;
+    margin-top: 150px;
+    margin-bottom: 30px; 
+    padding-bottom: 10px;
 }
-
 
 /* container for ALL drinks */
 #white, #red, #rose, #champagne, #drinks, #beer, #alcoholfree {
@@ -90,7 +89,6 @@
     max-width: 1200px;
     margin: auto;
 }
-
 
 /* Layout for smaller screens than 600px*/
 @media screen and (max-width: 600px) {

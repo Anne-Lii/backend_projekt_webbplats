@@ -47,4 +47,16 @@ button:hover {
   background-color: #bbb69a;
   box-shadow: 5px 5px 10px #000;
 }
+
+@media screen and (width <= 1000px) {
+  main {
+    padding-top: 100px;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  main {
+    padding-top: 100px;
+  }
+}
 /*# sourceMappingURL=login.4cdbd4fe.css.map */

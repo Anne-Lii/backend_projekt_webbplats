@@ -584,6 +584,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"3AlF7":[function(require,module,exports) {
+//code written by Anne-Lii Hansen VT 2024
 "use strict";
 const bookingsUrl = "https://backend-projekt-api-2zmb.onrender.com/api/bookings";
 const modalFieldMessage = document.querySelector(".modalFieldMessage");
@@ -602,8 +603,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const guests = document.getElementById("guests").value;
         if (!name || !email || !phone || !date || !time || !guests) {
             messageBooking.textContent = "Alla f\xe4lt m\xe5ste fyllas i";
-            messageBooking.style.display = "block";
-            return; // Stoppa vidare utförande om nödvändiga fält inte är ifyllda
+            messageBooking.style.display = "block"; //show messageBooking if all fields is not filled
+            return;
         } else messageBooking.style.display = "none";
         // Get values from bookingForm
         const newBooking = {
@@ -622,7 +623,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 },
                 body: JSON.stringify(newBooking)
             });
-            // Ensure the response is OK (status 200-299)
+            // Ensure the response is OK 
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             await response.json();
             // Reset the form after successful submission

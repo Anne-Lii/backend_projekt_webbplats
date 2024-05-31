@@ -95,13 +95,17 @@ table {
 }
 
 table, th, td {
-  border: 1px solid #d3d3d3;
+  border: 1px solid #bebebe;
 }
 
 th, td {
   text-align: left;
   padding: 8px;
   font-size: 16px;
+}
+
+thead {
+  background-color: #dddcdc;
 }
 
 #addDrinkButton, #addFoodButton {

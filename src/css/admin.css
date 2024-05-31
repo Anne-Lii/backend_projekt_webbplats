@@ -15,13 +15,13 @@ header h1 {
     text-shadow: 2px 2px black;
 }
 
+/* VERTICAL ADMIN MENU */
 .vertical_menu {
     width: 40%;
     max-width: 300px;
     float: left;
     display: flex;
     flex-direction: column;
-
 }
 
 .vertical_menu a {
@@ -33,7 +33,6 @@ header h1 {
     font-size: 18px;
     border: 1px solid grey;
     border-radius: 5px;
-
 }
 
 .vertical_menu a:hover {
@@ -62,7 +61,7 @@ header h1 {
     box-shadow: 5px 5px 10px black;
 }
 
-
+/* MAIN FOR SHOWING CURRENT WORKSPACE */
 main {
     display: grid;
     grid-template-columns: 1fr;
@@ -99,7 +98,7 @@ h3 {
     margin: 30px 0 10px 20px;
 }
 
-/* Table */
+/* TABLE */
 table {
     width: 90%;
     border-collapse: collapse;
@@ -110,7 +109,7 @@ table {
 table,
 th,
 td {
-    border: 1px solid lightgrey;
+    border: 1px solid rgb(190, 190, 190);
 }
 
 th,
@@ -118,6 +117,10 @@ td {
     padding: 8px;
     text-align: left;
     font-size: 16px;
+}
+
+thead {
+    background-color: #dddcdc;
 }
 
 #addDrinkButton,
@@ -149,7 +152,6 @@ td {
 }
 
 /* BOOKINGS */
-
 #bookingTitle {
     text-align: center;
 }
@@ -230,7 +232,6 @@ td {
     width: 100%;
     font-size: 16px;
     height: 30px;
-
 }
 
 #updateModal input {
@@ -280,7 +281,6 @@ td {
     height: 30px;
 }
 
-
 #addFoodModal select{
     width: 100%;
     font-size: 16px;
@@ -298,7 +298,6 @@ td {
     font-size: 16px;
     height: 30px;
 }
-
 
 @media screen and (max-width: 1600px)  and (min-width: 901px){
 
@@ -339,7 +338,6 @@ td {
         max-width: 400px;
         margin-left: 20px;       
     }
-
 }
 
 @media screen and (max-width: 900px) {
@@ -362,7 +360,6 @@ td {
         float: none;
         display: block;
         flex-direction: row;
-
     }
 
     .vertical_menu a {
@@ -408,7 +405,6 @@ td {
         margin: 50px 0 20px 10px;
         font-size: 24px;
     }
-
     
     table {
         width: 100%;
@@ -447,6 +443,4 @@ td {
         padding: 10px 0;
         margin: auto;
     }
-
-
 }

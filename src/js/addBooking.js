@@ -1,4 +1,5 @@
-"use strict"
+//code written by Anne-Lii Hansen VT 2024
+"use strict";
 
 const bookingsUrl = "https://backend-projekt-api-2zmb.onrender.com/api/bookings";
 const modalFieldMessage = document.querySelector('.modalFieldMessage');
@@ -12,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (bookingForm) {
         bookingForm.addEventListener('submit', async function (event) {
             event.preventDefault();
+
             // Check if all required fields have been filled
             const name = document.getElementById("name").value;
             const email = document.getElementById("email").value;
@@ -22,8 +24,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (!name || !email || !phone || !date || !time || !guests) {
                 messageBooking.textContent = 'Alla fält måste fyllas i';
-                messageBooking.style.display = 'block';
-                return; // Stoppa vidare utförande om nödvändiga fält inte är ifyllda
+                messageBooking.style.display = 'block';//show messageBooking if all fields is not filled
+                return; 
             } else {
                 messageBooking.style.display = 'none';
             }
@@ -38,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     body: JSON.stringify(newBooking)
                 });
 
-                // Ensure the response is OK (status 200-299)
+                // Ensure the response is OK 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -48,23 +50,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 bookingForm.reset();
 
                 // Show success message
-                if ( messageBooking) {
-                
+                if (messageBooking) {
                     messageBooking.textContent = 'Din bokning har registrerats';
                     messageBooking.style.display = 'block';
-                } 
+                }
             } catch (error) {
                 console.error('Error adding new booking:', error);
             }
         });
     }
 
-     // Add event listeners to input fields to reset message when clicked
-     const inputFields = document.querySelectorAll('input');
-     inputFields.forEach(input => {
-         input.addEventListener('click', function () {
-             messageBooking.textContent = ''; // Reset message
-             messageBooking.style.display = 'none'; // Hide message
-         });
-     });
+    // Add event listeners to input fields to reset message when clicked
+    const inputFields = document.querySelectorAll('input');
+    inputFields.forEach(input => {
+        input.addEventListener('click', function () {
+            messageBooking.textContent = ''; // Reset message
+            messageBooking.style.display = 'none'; // Hide message
+        });
+    });
 });

@@ -1,3 +1,6 @@
+//code written by Anne-Lii Hansen VT 2024
+"use strict";
+
 window.onload = init;
 
 //check if token exists then send to protected route, if not redirect to login.html
