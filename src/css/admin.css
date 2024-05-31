@@ -199,7 +199,7 @@ thead {
 }
 
 #updateBookingForm button {
-    background-color: rgb(72, 122, 120);
+    background-color: rgb(83, 83, 69);
     color: #fff;
     width: 60%;
     padding: 8px 0;
@@ -275,7 +275,7 @@ thead {
 }
 
 #submitBtn, #addFoodSubmitBtn, #addDrinkSubmitBtn {
-    background-color: rgb(72, 122, 120);
+    background-color: rgb(83, 83, 69);
     color: #fff;
     width: 60%;
     padding: 8px 0;
