@@ -35,6 +35,7 @@ header {
 #header_name {
   z-index: 5;
   width: 300px;
+  padding-top: 20px;
   padding-left: 50px;
   position: relative;
 }
@@ -187,7 +188,7 @@ nav ul li a {
 }
 
 #messageBooking {
-  color: #53a388;
+  color: #ecebe1;
   text-align: center;
   margin: 0 0 10px;
   font-size: 36px;
@@ -212,7 +213,7 @@ nav ul li a {
 @media screen and (width <= 1000px) {
   nav {
     opacity: .95;
-    background-color: #000000b3;
+    background-color: #000000fc;
     width: 250px;
     height: 100vh;
     padding: 0;
@@ -345,7 +346,7 @@ nav ul li a {
   }
 
   nav {
-    background-color: #000000b3;
+    background-color: #000000fc;
   }
 }
 /*# sourceMappingURL=index.34df27b5.css.map */

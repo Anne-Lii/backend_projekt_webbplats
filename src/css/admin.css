@@ -7,7 +7,7 @@
 
 body {
     width: 100%;
-    background-color: rgb(83, 83, 69);
+    background-color: #535345;
     font-family: Georgia, 'Times New Roman', Times, serif, 'Times New Roman', Times, serif;
 }
 
@@ -71,7 +71,7 @@ main {
     max-width: 1200px;
     min-height: 70vh;
     margin: auto;
-    background-color: rgb(216, 206, 194);
+    background-color: #d8cec2;
     margin-top: -250px;
     margin-bottom: 100px;
     border-radius: 10px;
