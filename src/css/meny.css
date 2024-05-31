@@ -42,12 +42,11 @@
 
 /* one food item */
 .menu-item {
-    padding: 15px; 
-    flex: 1 1 calc(50% - 40px); /* Take up 50% of the width minus gap */
+    padding: 10px; 
     box-sizing: border-box;   
     max-width: 400px;       
-    margin: 10px;      
-    flex: 1 1 calc(30% - 40px);
+     
+    flex: 1 1 calc(30% - 40px);/* Take up 30% of the width minus gap */
 }
 
 .menu-item h4 {
