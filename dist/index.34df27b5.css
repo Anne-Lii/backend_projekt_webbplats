@@ -123,6 +123,8 @@ nav ul li a {
 }
 
 #welcome {
+  color: #d8d2b2;
+  text-align: center;
   font-size: 1.4em;
   line-height: 1.1em;
 }
@@ -212,7 +214,7 @@ nav ul li a {
 @media screen and (width <= 1000px) {
   nav {
     opacity: .95;
-    background-color: #000;
+    background-color: #000000b3;
     width: 250px;
     height: 100vh;
     padding: 0;
