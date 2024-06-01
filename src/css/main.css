@@ -272,8 +272,8 @@ nav ul li a {
         background-color: transparent;
         border: none;
         position: fixed;
-        top: 20;
-        right: 10;
+        top: 20px;
+        right: 10px;
     }
 
     .open {

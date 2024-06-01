@@ -602,13 +602,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
     }
     // Event listener for window resize
     window.addEventListener("resize", handleResize);
-    // Event listener for smooth scroll when window scroll
-    window.addEventListener("scroll", function() {
-        let nav = document.querySelector("nav");
-        // Add or remove class based on scroll position to change appearance of navigation
-        if (this.window.scrollY > 0) nav.classList.add("nav-scroll");
-        else nav.classList.remove("nav-scrolled"); // set to 'nav-scroll' instead of 'nav-scrolled'
-    });
     // Event listener for opening menu
     document.getElementById("open-menu").addEventListener("click", ()=>{
         const navMenu = document.getElementById("nav-menu");
