@@ -6,16 +6,20 @@ document.addEventListener("DOMContentLoaded", () => {
     /* Burgermenu for smaller screens than 1000px */
     let menuVisible = true; // Initialize menu as visible
 
-    // Function to handle resizing of the window
-    function handleResize() {
+     // Function to handle resizing of the window
+     function handleResize() {
         const navMenu = document.getElementById("nav-menu");
 
-        // If window width is greater than or equal to 1000px, display the menu
+        // If window width is greater than or equal to 1000px, display the horizontal menu
         if (window.innerWidth >= 1000) {
             navMenu.style.display = "block";
             menuVisible = true;
+        } else {
+            navMenu.style.display = "none";
+            menuVisible = false;
         }
     }
+
     // Event listener for window resize
     window.addEventListener("resize", handleResize);
 

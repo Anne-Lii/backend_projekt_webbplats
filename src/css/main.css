@@ -280,12 +280,18 @@ nav ul li a {
         margin: 0 1em;
     }
 
+
     .menu-btn:hover {
         cursor: pointer;
     }
 
     .menu-icon {
-        margin-right: 10px;
+        margin-right: 10px;        
+    }
+    
+    #open-menu {
+        margin-top: 30px;
+        margin-right: 30px;   
     }
 
     /* burgermenu bars */
@@ -371,5 +377,10 @@ nav ul li a {
 
     nav {
         background-color: rgba(0, 0, 0, 0.99);
+    }
+
+    #open-menu {
+        margin-top: 20px;
+        margin-right: 30px;   
     }
 }
