@@ -236,7 +236,7 @@ nav ul li a {
 
     nav {
         font-size: 1.1em;
-        position: absolute;
+        position: fixed;
         top: 0;
         right: 0;
         height: 100vh;
