@@ -1,33 +1,42 @@
-# Projekt Backend Resturang Webbplats
+# Restaurant Etoile – Frontend
+Frontend project for the course **Backend-Based Web Development** (Mid Sweden University).  
 
-## Anne-Lii Hansen , anha2324@student.miun.se
+Developed by **Anne-Lii Hansen**  
 
-En webbplats som med hjälp av API presenterar en meny med mat och dryck. Inloggning för administratör finns och vid lyckad inloggning sparas en JSON Web Token (JWT) i localstorage och används för att komma åt administratörsgränssnittet som är en skyddad route. Där finns funktionalitet för att lägga till, ta bort och uppdatera de olika dryckerna och maten.
+---
 
+## About
+A web application that consumes the Restaurant Etoile backend API to present a dynamic menu with food and drinks.  
 
-## Teknologier
-**HTML**
-**CSS**
-**JavaScript**
+It includes an **administrator interface** protected by JWT authentication. Upon successful login, a JSON Web Token (JWT) is stored in localStorage and used to access the admin panel. From there, administrators can add, update, and delete menu items.  
+
+---
+
+## Tech Stack
+- **Frontend:** HTML, CSS, JavaScript  
+- **Backend API:** Node.js/Express + MongoDB (see [backend repository](https://github.com/Anne-Lii/backend_projekt_webbplats))  
+- **Authentication:** JWT stored in localStorage  
+- **Database:** MongoDB Atlas (for user credentials and menu data)  
+
+---
+
+## Features
+- **Dynamic menu** – Menu is fetched from the API and displayed dynamically  
+- **Admin panel (protected route)**  
+  - Register new administrators  
+  - Add, update, and delete food and drinks  
+- **Authentication**  
+  - Usernames and passwords are hashed and stored in MongoDB  
+  - Successful login issues a JWT stored in localStorage  
+  - JWT is required to access admin features  
+- **Logout** – Removes JWT from localStorage and redirects to home page  
+
+---
 
 ## Installation
-`git clone ` källkod från github
-`npm install`
-`npm run start`
-
-## Funktionalitet
-
-**Dynamisk meny**
-Menyn uppdateras dynamiskt från APIet. I inloggat läge som administratör finns möjlighet att uppdatera maträtter samt lägga till och ta bort maträtter.
-
-**registrering av användare** 
-i administratörsgränssnitte som är en skyddad route kan nya administratörer registreras med användarnamn och lösenord i ett formulär. Användarnamnet och lösenordet sparas hashade i en MongoDB databas som är hostad på Atlas. Användaren behöver ange användarnamn och lösenord.
-
-**Inloggning**
-Efter registrering kan användarnamnet samt tillhörande lösenord användas på inloggningssidan. Vid lyckad inloggning ges en JWT som lagras i localstorage.
-
-**Autentisering med JTWT**
-Den lagrade JWTn används i webbläsaren vid anrop för att autentisera användarens anrop till den skyddade routen.
-
-**Logga ut**
-I administratörsgränssnittet finns en Logga ut-knapp och då tas JWTn bort från localstorage och användaren hamnar åter igen på startsidan.
+Clone the repository and install dependencies:  
+```bash
+git clone 
+cd restaurant-etoile-frontend
+npm install
+npm start
