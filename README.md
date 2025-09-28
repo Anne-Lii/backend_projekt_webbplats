@@ -36,7 +36,7 @@ It includes an **administrator interface** protected by JWT authentication. Upon
 ## Installation
 Clone the repository and install dependencies:  
 ```bash
-git clone 
+git clone https://github.com/Anne-Lii/backend_projekt_webbplats.git
 cd restaurant-etoile-frontend
 npm install
 npm start
